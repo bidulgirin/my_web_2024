@@ -1,0 +1,52 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* 부드러운 스크롤 */
+  font-size: 16px; /* 기본 폰트 크기 설정 */
+  -webkit-text-size-adjust: 100%; /* 텍스트 크기 조정 방지 */
+}
+
+body {
+  font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+  line-height: 1.5; /* 텍스트 줄 간격 */
+  color: #333; /* 기본 글자색 */
+  background-color: #fff; /* 기본 배경색 */
+  -webkit-font-smoothing: antialiased; /* 텍스트 렌더링 부드럽게 */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none; /* 링크 밑줄 제거 */
+  color: inherit; /* 부모의 색상 상속 */
+}
+
+button {
+  all: unset; /* 버튼 기본 스타일 제거 */
+  cursor: pointer; /* 클릭 가능한 버튼 스타일 */
+}
+
+ul,
+ol {
+  list-style: none; /* 리스트 스타일 제거 */
+}
+
+img {
+  max-width: 100%; /* 이미지를 부모 요소 크기에 맞게 조정 */
+  height: auto; /* 이미지 비율 유지 */
+  display: block;
+}
+
+input,
+textarea {
+  font: inherit; /* 부모 폰트 상속 */
+}
+
+table {
+  border-collapse: collapse; /* 테이블 셀 간격 제거 */
+  width: 100%;
+}

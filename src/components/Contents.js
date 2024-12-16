@@ -3,13 +3,13 @@ import React from 'react';
 import Project from './Project';
 import About from './About';
 
-function Contents() {
+function Home() {
     return (
         <>
-            <Project/>
             <About/>
+            <Project/>
         </>
     );
 }
 
-export default Contents;
+export default Home;

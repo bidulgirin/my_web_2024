@@ -2,6 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
+import CreatePost from './CreatePost.js';
+
+//css
+import "../style/project.css";
 
 const Project = () => {
   const [projects, setProjects] = useState([]); // 프로젝트 데이터를 담을 상태
@@ -28,16 +32,24 @@ const Project = () => {
 
   return (
     <div>
-      <h1>Projects</h1>
+      <h1>내가 했던 프로젝트들</h1>
       <ul>
         {projects.length > 0 ? (
           projects.map((project) => (
-            <li key={project.id}>{project.title}</li> // 프로젝트 이름을 리스트로 표시
+            <li key={project.id}>
+              <a href={project.url}>
+                <img className='gf_project_img' src={project.img_url || "noimg.src"} alt="Project" />
+                <div>{project.title}</div>
+              </a>
+              
+            </li> // 프로젝트 이름을 리스트로 표시
           ))
         ) : (
-          <p>No projects available.</p> // 데이터가 없을 경우 메시지 표시
+          <p>잠시만기달려주세용</p> // 데이터가 없을 경우 메시지 표시
         )}
       </ul>
+      <div>추가</div>
+      <CreatePost/>
     </div>
   );
 };

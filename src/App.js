@@ -1,16 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header.js';
-import Home from './components/Home.js'; // Example component
-import Navi from './components/Navi.js'; // Example component
+import Home from './components/Contents.js'; 
+import Navi from './components/Navi.js'; 
+// css
+import "./style/common.css";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header/>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Navi.js" element={<Navi />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/Navi.js" element={<Navi/>} />
         </Routes>
       </div>
     </Router>
