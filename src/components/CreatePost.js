@@ -12,7 +12,7 @@ const CreatePost = () => {
     const { data, error } = await supabase
       .from('posts') // 'posts' 테이블에 데이터 삽입
       .insert([{ title, content }]);
-
+    
     if (error) {
       setMessage(`Error: ${error.message}`);
     } else {
