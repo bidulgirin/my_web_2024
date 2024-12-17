@@ -4,7 +4,7 @@ import React from 'react';
 function About() {
     return (
         <>
-        어바웃
+       <h1>나의 소개</h1>
 
         1. 나를 한줄로 줄여서 요약해라. <br/>
         2. 나는 이러이러한것을 할줄안다.<br/>

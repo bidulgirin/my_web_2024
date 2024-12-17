@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
-import CreatePost from './CreatePost.js';
 
+// noimg 
+import noimg from "../img/noimg.jpg";
 //css
 import "../style/project.css";
 
@@ -32,24 +33,24 @@ const Project = () => {
 
   return (
     <div>
-      <h1>내가 했던 프로젝트들</h1>
-      <ul>
+      <h1>내가 했던 프로젝트</h1>
+      <ul className="l_projects">
         {projects.length > 0 ? (
           projects.map((project) => (
-            <li key={project.id}>
+            <li className="l_project" key={project.id}>
               <a href={project.url}>
-                <img className='gf_project_img' src={project.img_url || "noimg.src"} alt="Project" />
+                <img className='gf_project_img' src={project?.img_url || noimg} alt="Project" />
                 <div>{project.title}</div>
+                <div>{project.desc}</div>
               </a>
               
             </li> // 프로젝트 이름을 리스트로 표시
           ))
         ) : (
-          <p>잠시만기달려주세용</p> // 데이터가 없을 경우 메시지 표시
+          <p>잠시만기다려주세용</p> // 데이터가 없을 경우 메시지 표시
         )}
       </ul>
-      <div>추가</div>
-      <CreatePost/>
+   
     </div>
   );
 };

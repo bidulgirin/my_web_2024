@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // 페이지 이동을 위한 링크 추가
 
 function Navi() {
-    return (
+  return (
             <nav style={styles.nav}>
                 <Link to="/" style={styles.link}>home</Link>
-                <Link to="/contact" style={styles.link}>Contact</Link>
+                <Link to="/admin" style={styles.link}>admin</Link>
             </nav>
     );
 }
