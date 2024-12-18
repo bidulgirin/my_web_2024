@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import supabase from './supabase'; // supabase.js 가져오기
-import { getToken, setToken, removeToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
-import { redirect } from 'react-router-dom';
+import { token, setToken, removeToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [user, setUser] = useState(null);
-  const token = getToken(); // 로컬 스토리지에서 토큰 가져오기
+
   // 로그인 함수
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -42,25 +41,30 @@ const Login = () => {
   return (
     <div>
       {!token ?
-        <>
+        <div style={styles.lf_loginArea}>
             <h1>로그인</h1>
             <form onSubmit={handleLogin}>
-            <input
-                type="email"
-                placeholder="이메일"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="비밀번호"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">로그인</button>
+                <div className="gf_input">
+                    <input
+                        type="email"
+                        placeholder="이메일"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    /> 
+                </div>
+                <div className="gf_input">
+                    <input
+                        type="password"
+                        placeholder="비밀번호"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                
+                <button className="gf_btn" type="submit">로그인</button>
             </form>
         
-        </> 
+        </div> 
         :
         <>
           어서오시게
@@ -69,6 +73,15 @@ const Login = () => {
       {error && <p>{error}</p>}
     </div>
   );
+};
+
+const styles = {
+    lf_loginArea: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 };
 
 export default Login;

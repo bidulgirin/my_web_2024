@@ -1,15 +1,31 @@
 // 공통 헤더 작성
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Navi from './Navi';
-import supabase from '../apis/supabase'; // supabase.js 가져오기
-import { getToken, removeToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
-import UserStatus from '../apis/userStatus';
+import UserStatus from './UserStatus';
 import { Link } from 'react-router-dom';
+import { getToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
+
 
 function Header() {
-    const token = getToken();
+    const headerRef = useRef(null);
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsSticky(window.scrollY > 100);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
+
     return (
-        <header style={styles.header}>
+        <header 
+            ref={headerRef}
+            className={isSticky ? 'gf_header isSticky' : 'gf_header'}
+        >
             <Link to="/" style={styles.logo}>기깔나는로고</Link>
             <UserStatus/>
             <Navi/>
@@ -18,16 +34,7 @@ function Header() {
 }
 
 const styles = {
-    header: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem',
-        backgroundColor: '#20232a',
-        color: 'white'
-    },
     logo: {
-        fontSize: '1.5rem',
         fontWeight: 'bold'
     }
 };

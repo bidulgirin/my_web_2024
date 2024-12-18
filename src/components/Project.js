@@ -38,11 +38,11 @@ const Project = () => {
         {projects.length > 0 ? (
           projects.map((project) => (
             <li className="gf_content" key={project.id}>
-              <a href={project.url}>
+              <a href={project.url} target='_blank'>
                 <div className='gf_contentImgArea'>
                   <img className='gf_project_img' src={project?.img_url || noimg} alt="Project" />
                 </div>
-                <div>{project.title}</div>
+                <div className='title'>{project.title}</div>
                 <div>{project.desc}</div>
               </a>
             </li> // 프로젝트 이름을 리스트로 표시

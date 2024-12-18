@@ -1,12 +1,12 @@
 //import { HashRouter  as Router, Routes, Route } from 'react-router-dom';
 import { BrowserRouter  as Router, Routes, Route } from 'react-router-dom';
-
-import Header from './components/Header.js';
-import Home from './components/Contents.js'; 
-import Navi from './components/Navi.js'; 
-import Admin from './components/Admin.js';
 // css
 import "./style/common.css";
+import Header from './components/Header.js';
+import Admin from './components/Admin.js';
+import Contents from './components/Contents.js';
+
+
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Header/>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Contents/>} />
           <Route path="/admin" element={<Admin/>} />
         </Routes>
       </div>

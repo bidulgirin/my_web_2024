@@ -2,23 +2,28 @@
 import React from 'react';
 import Project from './Project';
 import About from './About';
-import { getToken } from '../apis/Token';
+import { token } from '../apis/Token';
 import CreateProject from './CreateProject';
+import Main from './Main';
 
-function Home() {
-    const token = getToken();
+function Contents() {
+
     return (
-        <section className="gf_contentArea">
-            <About/>
-            <Project/>
-            {token && 
-                <>
-                    <div>추가</div>
-                    <CreateProject/>
-                </>
-            }
+        <section>
+            <section>
+                <Main/>
+            </section>
+            <section className="gf_contentArea">
+                <About/>
+                <Project/>
+                {token && 
+                    <>
+                        <CreateProject/>
+                    </>
+                }
+            </section>
         </section>
     );
 }
 
-export default Home;
+export default Contents;
