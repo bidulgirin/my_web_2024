@@ -12,7 +12,7 @@ function Main() {
 const styles = {
     main: {
         width: '100%',
-        height: '60vh',
+        height: '20vh',
         background: '#efefef'
     },
 };

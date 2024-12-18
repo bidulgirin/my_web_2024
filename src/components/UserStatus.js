@@ -6,11 +6,17 @@ import { logout } from '../apis/LogOut';
 
 function UserStatus() {
   return (
-          <>
-            {token && <p>환영합니다. 관리자님 <div onClick={logout}>로그아웃</div></p>}
-          </>
-          
-  );
+            <>
+                {token && 
+                    <div className='gf_userState'>
+                        <div>
+                            환영합니다. 관리자님 
+                            <button className="gf_logoutBtn" onClick={logout}>로그아웃</button>
+                        </div>
+                    </div>
+                }
+            </>
+    );
 }
 
 

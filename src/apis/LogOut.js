@@ -26,8 +26,5 @@ export const logout = async () => {
           console.error("로그아웃 처리 중 오류가 발생했습니다:", error);
           alert("예기치 못한 오류가 발생했습니다. 다시 시도해주세요.");
       }
-  } else {
-      // 사용자가 로그아웃을 취소했을 경우
-      alert("로그아웃이 취소되었습니다.");
   }
 };

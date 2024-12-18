@@ -16,11 +16,6 @@ function Contents() {
             <section className="gf_contentArea">
                 <About/>
                 <Project/>
-                {token && 
-                    <>
-                        <CreateProject/>
-                    </>
-                }
             </section>
         </section>
     );
