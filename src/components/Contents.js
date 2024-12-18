@@ -8,20 +8,16 @@ import CreateProject from './CreateProject';
 function Home() {
     const token = getToken();
     return (
-        <>
+        <section className="gf_contentArea">
             <About/>
             <Project/>
-
             {token && 
                 <>
                     <div>추가</div>
                     <CreateProject/>
                 </>
             }
-            
-
-
-        </>
+        </section>
     );
 }
 

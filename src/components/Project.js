@@ -34,16 +34,17 @@ const Project = () => {
   return (
     <div>
       <h1>내가 했던 프로젝트</h1>
-      <ul className="l_projects">
+      <ul className="gf_contents">
         {projects.length > 0 ? (
           projects.map((project) => (
-            <li className="l_project" key={project.id}>
+            <li className="gf_content" key={project.id}>
               <a href={project.url}>
-                <img className='gf_project_img' src={project?.img_url || noimg} alt="Project" />
+                <div className='gf_contentImgArea'>
+                  <img className='gf_project_img' src={project?.img_url || noimg} alt="Project" />
+                </div>
                 <div>{project.title}</div>
                 <div>{project.desc}</div>
               </a>
-              
             </li> // 프로젝트 이름을 리스트로 표시
           ))
         ) : (

@@ -31,7 +31,7 @@ const Login = () => {
         setUser(data.user); // 사용자 정보 저장
         setToken(data.session.access_token)// 토큰 로컬 저장
 
-        redirect('/');
+        window.location.reload();
       }
     } catch (error) {
       setError('로그인 실패: ' + error.message);

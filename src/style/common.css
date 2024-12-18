@@ -3,18 +3,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+}
+
+:root{
+  --main-color:#fff;
+  --max-width:1200px;
+  --font-size-base:15px;
+  --font-design-base:Arial, sans-serif;
+  --font-color-base:#1b1b1b;
+  --sumnail-size: 33%;
 }
 
 html {
   scroll-behavior: smooth; /* 부드러운 스크롤 */
-  font-size: 16px; /* 기본 폰트 크기 설정 */
+  font-size: var(font-size-base); /* 기본 폰트 크기 설정 */
   -webkit-text-size-adjust: 100%; /* 텍스트 크기 조정 방지 */
 }
 
 body {
-  font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+  font-family: var(--font-design-base); /* 기본 폰트 설정 */
   line-height: 1.5; /* 텍스트 줄 간격 */
-  color: #333; /* 기본 글자색 */
+  color: var(--font-color-base); /* 기본 글자색 */
   background-color: #fff; /* 기본 배경색 */
   -webkit-font-smoothing: antialiased; /* 텍스트 렌더링 부드럽게 */
   -moz-osx-font-smoothing: grayscale;
@@ -49,4 +59,37 @@ textarea {
 table {
   border-collapse: collapse; /* 테이블 셀 간격 제거 */
   width: 100%;
+}
+
+.gf_contentArea{
+  margin:0 auto;
+  max-width: var(--max-width);
+  background-color: pink;
+}
+
+.gf_contents{
+    display:flex;
+    flex-wrap: wrap;
+    gap:1%;
+    
+    .gf_content{
+        max-width: 33%;
+        border:1px solid black;
+        background-color: red;
+    }
+}
+
+.gf_contentImgArea{
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 16:9 비율 */
+    position: relative;
+    overflow: hidden;
+    
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
 }

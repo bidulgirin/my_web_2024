@@ -3,24 +3,15 @@ import React from 'react';
 import Navi from './Navi';
 import supabase from '../apis/supabase'; // supabase.js 가져오기
 import { getToken, removeToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
-
-
-
-// 로그아웃 함수
-const handleLogOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    removeToken();
-    alert('로그아웃 되었습니다');
-};
-
-
+import UserStatus from '../apis/userStatus';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const token = getToken();
     return (
         <header style={styles.header}>
-            <div style={styles.logo}>logo</div>
-            {token && <p>환영합니다. 관리자님 <div onClick={handleLogOut}>로그아웃</div></p>}
+            <Link to="/" style={styles.logo}>기깔나는로고</Link>
+            <UserStatus/>
             <Navi/>
         </header>
     );

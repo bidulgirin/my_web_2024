@@ -1,4 +1,3 @@
-import { redirect } from "react-router-dom";
 
 /**
  * 로컬 스토리지에서 JWT 토큰 가져오기
