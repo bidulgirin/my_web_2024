@@ -10,15 +10,15 @@ import Contents from './components/Contents.js';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header/>
-        <Routes>
-          <Route path="/" element={<Contents/>} />
-          <Route path="/admin" element={<Admin/>} />
-        </Routes>
-      </div>
-    </Router>
+      <Router basename={process.env.PUBLIC_URL}>
+        <div className="App">
+          <Header/>
+          <Routes>
+            <Route path="/" element={<Contents/>} />
+            <Route path="/admin" element={<Admin/>} />
+          </Routes>
+        </div>
+      </Router>
   );
 }
 
