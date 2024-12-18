@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "https://bidulgirin.github.io/my_web_2024/static/css/main.ccbe5c0a.css",
-    "main.js": "https://bidulgirin.github.io/my_web_2024/static/js/main.a8c57100.js",
-    "static/js/952.9338301c.chunk.js": "https://bidulgirin.github.io/my_web_2024/static/js/952.9338301c.chunk.js",
-    "static/js/453.c6a2fbf3.chunk.js": "https://bidulgirin.github.io/my_web_2024/static/js/453.c6a2fbf3.chunk.js",
-    "index.html": "https://bidulgirin.github.io/my_web_2024/index.html",
-    "main.ccbe5c0a.css.map": "https://bidulgirin.github.io/my_web_2024/static/css/main.ccbe5c0a.css.map",
-    "main.a8c57100.js.map": "https://bidulgirin.github.io/my_web_2024/static/js/main.a8c57100.js.map",
-    "952.9338301c.chunk.js.map": "https://bidulgirin.github.io/my_web_2024/static/js/952.9338301c.chunk.js.map",
-    "453.c6a2fbf3.chunk.js.map": "https://bidulgirin.github.io/my_web_2024/static/js/453.c6a2fbf3.chunk.js.map"
+    "main.css": "/my_web_2024/static/css/main.ccbe5c0a.css",
+    "main.js": "/my_web_2024/static/js/main.bc7220df.js",
+    "static/js/952.9338301c.chunk.js": "/my_web_2024/static/js/952.9338301c.chunk.js",
+    "static/js/453.c6a2fbf3.chunk.js": "/my_web_2024/static/js/453.c6a2fbf3.chunk.js",
+    "index.html": "/my_web_2024/index.html",
+    "main.ccbe5c0a.css.map": "/my_web_2024/static/css/main.ccbe5c0a.css.map",
+    "main.bc7220df.js.map": "/my_web_2024/static/js/main.bc7220df.js.map",
+    "952.9338301c.chunk.js.map": "/my_web_2024/static/js/952.9338301c.chunk.js.map",
+    "453.c6a2fbf3.chunk.js.map": "/my_web_2024/static/js/453.c6a2fbf3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ccbe5c0a.css",
-    "static/js/main.a8c57100.js"
+    "static/js/main.bc7220df.js"
   ]
 }
