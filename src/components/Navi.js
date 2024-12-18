@@ -7,8 +7,8 @@ function Navi() {
   return (
             <nav style={styles.navi}>
                 <UserStatus/>
-                <Link to="/" style={styles.link}>home</Link>
-                <Link to="/admin" style={styles.link}>admin</Link>
+                <Link to="/my_web_2024/" style={styles.link}>home</Link>
+                <Link to="/my_web_2024/admin" style={styles.link}>admin</Link>
             </nav>
     );
 }
