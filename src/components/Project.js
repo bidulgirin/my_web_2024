@@ -1,15 +1,14 @@
 // src/Project.js
 
+// noimg 
+import noimg from "../img/noimg.jpg";
+// css
+import "../style/project.css";
 import React, { useState, useEffect } from 'react';
 import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
 import { token } from '../apis/Token.js';
 import useModal from '../apis/useModal';
 import Modal from './Modal';
-
-// noimg 
-import noimg from "../img/noimg.jpg";
-// css
-import "../style/project.css";
 import CreateProject from './CreateProject.js';
 
 const Project = () => {

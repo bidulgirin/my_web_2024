@@ -2,8 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navi from './Navi';
 import { Link } from 'react-router-dom';
-import { getToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
-
+import ToggleDarkMode from './ToggleDarkMode';
 
 function Header() {
     const headerRef = useRef(null);
@@ -18,8 +17,6 @@ function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-
-
     return (
         <div 
             ref={headerRef}
@@ -27,6 +24,7 @@ function Header() {
         >
             <Link to="/" style={styles.logo}>기깔나는로고</Link>
             <Navi/>
+            <ToggleDarkMode/>
         </div>
     );
 }

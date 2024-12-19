@@ -1,76 +1,94 @@
 /* Reset CSS */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
-  --main-color:#ebefd6;
-  --sub-color:#c9d8b7;
-  --point-color:#9cb395;
-  --deep-color:#5c6e56;
-  --max-width:1200px;
-  --font-size-base:15px;
-  --font-design-base:Arial, sans-serif;
-  --font-color-base:#1b1b1b;
-  --sumnail-size: 30%;
-  --radius-base:10px;
-  --input-box-color:#efefef;
+    --background-color: #fff;
+    --text-color: #000;
+    --main-color:#ebefd6;
+    --sub-color:#c9d8b7;
+    --point-color:#9cb395;
+    --deep-color:#5c6e56;
+    --max-width:1200px;
+    --font-size-base:15px;
+    --font-design-base:Arial, sans-serif;
+    --font-color-base:#1b1b1b;
+    --sumnail-size: 30%;
+    --radius-base:10px;
+    --input-box-color:#efefef;
+    --line-height: 1.5;
 }
 
+/* 라이트 모드 */
+.light-mode {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* 다크 모드 */
+.dark-mode {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+}
+
+  
+
+
+
 html {
-  scroll-behavior: smooth; /* 부드러운 스크롤 */
-  font-size: var(font-size-base); /* 기본 폰트 크기 설정 */
-  -webkit-text-size-adjust: 100%; /* 텍스트 크기 조정 방지 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    font-size: var(font-size-base); /* 기본 폰트 크기 설정 */
+    -webkit-text-size-adjust: 100%; /* 텍스트 크기 조정 방지 */
 }
 
 body {
-  font-family: var(--font-design-base); /* 기본 폰트 설정 */
-  line-height: 1.5; /* 텍스트 줄 간격 */
-  color: var(--font-color-base); /* 기본 글자색 */
-  background-color: #fff; /* 기본 배경색 */
-  -webkit-font-smoothing: antialiased; /* 텍스트 렌더링 부드럽게 */
-  -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-design-base); /* 기본 폰트 설정 */
+    line-height: var(--line-height); /* 텍스트 줄 간격 */
+    color: var(--font-color-base); /* 기본 글자색 */
+    background-color: var(--background-color); /* 기본 배경색 */
+    -webkit-font-smoothing: antialiased; /* 텍스트 렌더링 부드럽게 */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  text-decoration: none; /* 링크 밑줄 제거 */
-  color: inherit; /* 부모의 색상 상속 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit; /* 부모의 색상 상속 */
 }
 
 button {
-  all: unset; /* 버튼 기본 스타일 제거 */
-  cursor: pointer; /* 클릭 가능한 버튼 스타일 */
+    all: unset; /* 버튼 기본 스타일 제거 */
+    cursor: pointer; /* 클릭 가능한 버튼 스타일 */
 }
 
 ul,
 ol {
-  list-style: none; /* 리스트 스타일 제거 */
+list-style: none; /* 리스트 스타일 제거 */
 }
 
 img {
-  max-width: 100%; /* 이미지를 부모 요소 크기에 맞게 조정 */
-  height: auto; /* 이미지 비율 유지 */
-  display: block;
+max-width: 100%; /* 이미지를 부모 요소 크기에 맞게 조정 */
+height: auto; /* 이미지 비율 유지 */
+display: block;
 }
 
 input,
 textarea {
-  font: inherit; /* 부모 폰트 상속 */
+    font: inherit; /* 부모 폰트 상속 */
 }
 
 table {
-  border-collapse: collapse; /* 테이블 셀 간격 제거 */
-  width: 100%;
+    border-collapse: collapse; /* 테이블 셀 간격 제거 */
+    width: 100%;
 }
-
+/* 공통 콘텐츠 영역 스타일 */
 .gf_contentArea{
-  margin: 0 auto;
-  max-width: var(--max-width);
-  background-color: var(--sub-color);
-  padding: 5px 20px;
+    margin: 0 auto;
+    max-width: var(--max-width);
+    background-color: var(--sub-color);
+    padding: 5px 20px;
 }
 
 .gf_contents{
@@ -94,17 +112,17 @@ table {
     }
 
     @media screen and (max-width: 800px) {
-      .gf_content{
-          max-width: calc((100% - (2 * var(--gap))) / 2);
-          min-width: calc((100% - (2 * var(--gap))) / 2);
-      }
+    .gf_content{
+        max-width: calc((100% - (2 * var(--gap))) / 2);
+        min-width: calc((100% - (2 * var(--gap))) / 2);
+    }
     }
 
     @media screen and (max-width: 500px) {
-      .gf_content{
-          max-width: calc((100% - (2 * var(--gap))) / 1);
-          min-width: calc((100% - (2 * var(--gap))) / 1);
-      }
+    .gf_content{
+        max-width: calc((100% - (2 * var(--gap))) / 1);
+        min-width: calc((100% - (2 * var(--gap))) / 1);
+    }
     }
 
 }
@@ -133,11 +151,11 @@ table {
 }
 
 .gf_smallBtn{
-  width: fit-content;
-  background-color: var(--font-color-base);
-  color:white;
-  padding: 5px 10px;
-  border: var(--radius-base);
+width: fit-content;
+background-color: var(--font-color-base);
+color:white;
+padding: 5px 10px;
+border: var(--radius-base);
 }
 
 
@@ -177,31 +195,31 @@ table {
 }
 
 .gf_userState{
-  background-color: white;
-  color: #000;
-  padding: .5rem;
-  border-radius: var(--radius-base);
+background-color: white;
+color: #000;
+padding: .5rem;
+border-radius: var(--radius-base);
 }
 .gf_logoutBtn{
-  background-color: rgb(255, 138, 70);
-  color: white;
+background-color: rgb(255, 138, 70);
+color: white;
 }
 
 .gf_formLayout{
-  background-color: var(--point-color);
-  z-index: 100;
-  width: 90vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  padding: 1rem;
-  border-radius: var(--radius-base);
+background-color: var(--point-color);
+z-index: 100;
+width: 90vw;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+padding: 1rem;
+border-radius: var(--radius-base);
 
-  .gf_form{}
-  .gf_formTitle{
+.gf_form{}
+.gf_formTitle{
     font-weight: bold;
     width:100%;
     display: block;
-  }
+}
 }
