@@ -2,18 +2,18 @@
 import React from 'react';
 
 function Main() {
-  return (
-            <section style={styles.main}>
-              <div className="gf_contentArea">호오오오옹</div>
-            </section>
+    return (
+        <section style={styles.main}>
+            <div className='gf_contentArea'>메인이다</div>
+        </section>
     );
 }
 
 const styles = {
     main: {
         width: '100%',
-        height: '20vh',
-        background: '#efefef'
+        height: '100vh',
+        background: 'var(--main-color)',
     },
 };
 

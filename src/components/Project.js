@@ -1,9 +1,9 @@
 // src/Project.js
 
-// noimg 
-import noimg from "../img/noimg.jpg";
+// noimg
+import noimg from '../img/noimg.jpg';
 // css
-import "../style/project.css";
+import '../style/project.css';
 import React, { useState, useEffect } from 'react';
 import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
 import { token } from '../apis/Token.js';
@@ -14,14 +14,16 @@ import CreateProject from './CreateProject.js';
 const Project = () => {
     const [projects, setProjects] = useState([]); // 프로젝트 데이터를 담을 상태
     const [activeModalId, setActiveModalId] = useState(null); // 수정 모달 상태를 프로젝트 ID로 관리
-    const { isOpen: isCreateModalOpen, openModal: openCreateModal, closeModal: closeCreateModal } = useModal();
+    const {
+        isOpen: isCreateModalOpen,
+        openModal: openCreateModal,
+        closeModal: closeCreateModal,
+    } = useModal();
 
     // 데이터 가져오기
     useEffect(() => {
         const fetchProjects = async () => {
-            const { data, error } = await supabase
-                .from('project')
-                .select('*');
+            const { data, error } = await supabase.from('project').select('*');
 
             if (error) {
                 console.error('Error fetching data:', error);
@@ -46,15 +48,17 @@ const Project = () => {
     return (
         <div>
             <h1>PROJECT</h1>
-            <ul className="gf_contents">
+            <ul className='gf_contents'>
                 {projects.length > 0 ? (
                     projects.map((project) => (
-                        <li className="gf_content" key={project.id}>
+                        <li className='gf_content' key={project.id}>
                             {token && (
                                 <>
                                     <button
-                                        className="gf_btn"
-                                        onClick={() => openEditModal(project.id)}
+                                        className='gf_btn'
+                                        onClick={() =>
+                                            openEditModal(project.id)
+                                        }
                                     >
                                         수정하기
                                     </button>
@@ -64,23 +68,27 @@ const Project = () => {
                                     >
                                         <CreateProject
                                             id={project?.id || null}
-                                            title={project?.title || ""}
-                                            desc={project?.desc || ""}
-                                            link={project?.link || ""}
-                                            imgUrl={project?.imgUrl || ""}
+                                            title={project?.title || ''}
+                                            desc={project?.desc || ''}
+                                            link={project?.link || ''}
+                                            imgUrl={project?.imgUrl || ''}
                                         />
                                     </Modal>
                                 </>
                             )}
-                            <a href={project.link} target="_blank" rel="noreferrer">
-                                <div className="gf_contentImgArea">
+                            <a
+                                href={project.link}
+                                target='_blank'
+                                rel='noreferrer'
+                            >
+                                <div className='gf_contentImgArea'>
                                     <img
-                                        className="gf_project_img"
+                                        className='gf_project_img'
                                         src={project?.imgUrl || noimg}
-                                        alt="Project"
+                                        alt='Project'
                                     />
                                 </div>
-                                <div className="title">{project.title}</div>
+                                <div className='title'>{project.title}</div>
                                 <div>{project.desc}</div>
                             </a>
                         </li>
@@ -91,10 +99,13 @@ const Project = () => {
             </ul>
             {token && (
                 <>
-                    <button className="gf_btn" onClick={openCreateModal}>
+                    <button className='gf_btn' onClick={openCreateModal}>
                         프로젝트 등록하기
                     </button>
-                    <Modal isOpen={isCreateModalOpen} closeModal={closeCreateModal}>
+                    <Modal
+                        isOpen={isCreateModalOpen}
+                        closeModal={closeCreateModal}
+                    >
                         <CreateProject />
                     </Modal>
                 </>

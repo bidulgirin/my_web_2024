@@ -14,25 +14,29 @@ function Header() {
         };
 
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
-        <div 
+        <div
             ref={headerRef}
             className={isSticky ? 'gf_header isSticky' : 'gf_header'}
         >
-            <Link to="/" style={styles.logo}>기깔나는로고</Link>
-            <Navi/>
-            <ToggleDarkMode/>
+            <Link to='/' style={styles.logo}>
+                기깔나는로고
+            </Link>
+            <Navi />
+            <ToggleDarkMode />
         </div>
     );
 }
 
 const styles = {
     logo: {
-        fontWeight: 'bold'
-    }
+        fontWeight: 'bold',
+    },
 };
 
 export default Header;

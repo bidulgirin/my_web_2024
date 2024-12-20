@@ -7,15 +7,14 @@ import CreateProject from './CreateProject';
 import Main from './Main';
 
 function Contents() {
-
     return (
         <section>
             <section>
-                <Main/>
+                <Main />
             </section>
-            <section className="gf_contentArea">
-                <About/>
-                <Project/>
+            <section className='gf_contentArea'>
+                <About />
+                <Project />
             </section>
         </section>
     );
