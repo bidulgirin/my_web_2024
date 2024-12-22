@@ -1,10 +1,17 @@
+@font-face {
+    font-family: 'LOTTERIADDAG';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIADDAG.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 /* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+/* 라이트 모드 */
 :root {
     --background-color: #fff;
     --text-color: #000;
@@ -12,26 +19,23 @@
     --sub-color: #c9d8b7;
     --point-color: #71ff46;
     --deep-color: #3021a5;
+    --nav-color: #000000c3;
     --max-width: 1200px;
     --font-size-base: 15px;
     --font-design-base: Arial, sans-serif;
-    --font-color-base: #1b1b1b;
     --sumnail-size: 30%;
     --radius-base: 10px;
     --input-box-color: #efefef;
     --line-height: 1.5;
-}
-
-/* 라이트 모드 */
-.light-mode {
-    --background-color: #ffffff;
-    --text-color: #000000;
+    --point-font: 'LOTTERIADDAG';
 }
 
 /* 다크 모드 */
 .dark-mode {
     --background-color: #121212;
     --text-color: #e0e0e0;
+    --main-color: #282828;
+    --deep-color: #0f0a31;
 }
 
 html {
@@ -43,7 +47,7 @@ html {
 body {
     font-family: var(--font-design-base); /* 기본 폰트 설정 */
     line-height: var(--line-height); /* 텍스트 줄 간격 */
-    color: var(--font-color-base); /* 기본 글자색 */
+    color: var(--text-color); /* 기본 글자색 */
     background-color: var(--background-color); /* 기본 배경색 */
     -webkit-font-smoothing: antialiased; /* 텍스트 렌더링 부드럽게 */
     -moz-osx-font-smoothing: grayscale;
@@ -80,6 +84,13 @@ table {
     width: 100%;
 }
 /* 공통 콘텐츠 영역 스타일 */
+.gf_title {
+    font-family: var(--point-font);
+}
+.gf_desc {
+    font-size: 0.9rem;
+    color: #dedede;
+}
 .gf_contentArea {
     margin: 0 auto;
     max-width: var(--max-width);
@@ -165,10 +176,10 @@ table {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var(--deep-color);
+    background-color: var(--nav-color);
     color: white;
     border-radius: 0px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.078);
     margin: 0px;
     transition: all 0.3s;
 

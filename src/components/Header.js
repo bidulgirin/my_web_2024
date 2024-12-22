@@ -24,8 +24,8 @@ function Header() {
             ref={headerRef}
             className={isSticky ? 'gf_header isSticky' : 'gf_header'}
         >
-            <Link to='/' style={styles.logo}>
-                기깔나는로고
+            <Link to='/' className='gf_title' style={styles.logo}>
+                로고
             </Link>
             <Navi />
             <ToggleDarkMode />
