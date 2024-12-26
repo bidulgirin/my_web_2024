@@ -10,10 +10,12 @@ import ContactForm from './ContactFrom';
 function Contents() {
     return (
         <section>
-            <section>{/* <Main /> */}</section>
+            <section>
+                <Main />
+            </section>
             <section className='gf_contentArea'>
-                {/* <About />
-                <Project /> */}
+                <About />
+                <Project />
                 <ContactForm />
             </section>
         </section>
