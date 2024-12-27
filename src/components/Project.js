@@ -64,6 +64,9 @@ const Project = () => {
                                       >
                                           수정하기
                                       </button>
+                                      <button className='gf_btn gf_btn_delete'>
+                                          삭제하기
+                                      </button>
                                       <Modal
                                           isOpen={activeModalId === project.id}
                                           closeModal={closeEditModal}

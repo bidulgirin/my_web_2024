@@ -153,22 +153,6 @@ table {
     }
 }
 
-.gf_btn {
-    width: fit-content;
-    background-color: var(--deep-color);
-    color: white;
-    padding: 10px 20px;
-    border: var(--radius-base);
-}
-
-.gf_smallBtn {
-    width: fit-content;
-    background-color: var(--font-color-base);
-    color: white;
-    padding: 5px 10px;
-    border: var(--radius-base);
-}
-
 .gf_input {
     border-color: var(--input-box-color);
     border-radius: var(--radius-base);
@@ -198,43 +182,42 @@ table {
 
 /* 버튼 공통 스타일 */
 /* 기본 스타일 */
-.gf_button {
+.gf_btn {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: var(--font-size-base);
     border-radius: var(--radius-base);
 }
 
 /* 상태 스타일 */
-.gf_button_normal {
+.gf_btn_normal {
     background-color: #f0f0f0;
     color: #333;
 }
 
-.gf_button_warning {
+.gf_btn_delete {
     background-color: #ff0000;
     color: #fff;
 }
 
-.gf_button_success {
+.gf_btn_success {
     background-color: #28a745;
     color: #fff;
 }
 
 /* 크기 스타일 */
-.gf_button_small {
-    font-size: 12px;
+.gf_btn_small {
+    font-size: 0.8rem;
     padding: 5px 10px;
 }
 
-.gf_button_large {
-    font-size: 20px;
+.gf_btn_large {
+    font-size: 1.2rem;
     padding: 15px 30px;
 }
 
-/* 추가 속성 */
-.gf_button_rounded {
+.gf_btn_rounded {
     border-radius: 50px;
 }
 
