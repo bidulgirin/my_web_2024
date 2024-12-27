@@ -1,0 +1,13 @@
+.lf_aboutLayout {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    color: white;
+}
+.lf_aboutText {
+    width: 50%;
+}
+.lf_aboutAni {
+}

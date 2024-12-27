@@ -1,14 +1,21 @@
 // 공통 헤더 작성
 import React from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import styles from '../style/about.module.css';
 
 function About() {
     return (
-        <div className='gf_contentArea '>
-            <h1>나의 소개</h1>
-            1. 나를 한줄로 줄여서 요약해라. <br />
-            2. 나는 이러이러한것을 할줄안다.
-            <br />
-            3. 이거 이거는 배우고 있는 중이다.
+        <div className={` ${styles.lf_aboutLayout}`}>
+            <div className={styles.lf_aboutText}>왼쪽 컨텐츠</div>
+            <div className={styles.lf_aboutAni}>
+                <div style={{ width: '300px', height: '300px' }}>
+                    <DotLottieReact
+                        src='https://lottie.host/d4bdba7c-9c60-403d-9754-9f32a5f964c2/iFHVJVJor9.json'
+                        loop
+                        autoplay
+                    />
+                </div>
+            </div>
         </div>
     );
 }
