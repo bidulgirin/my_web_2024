@@ -21,8 +21,7 @@
     z-index: 1; /* 콘텐츠 뒤로 배치 */
     transform: translate(-50%, -50%);
 }
-.text_layout {
-}
+
 .video {
     width: 100%;
     height: 100%;

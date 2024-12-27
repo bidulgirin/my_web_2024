@@ -24,7 +24,7 @@
     --text-color: #000;
     --main-color: #ffd2d2;
     --sub-color: #c9d8b7;
-    --point-color: #71ff46;
+    --point-color: #f5ff66;
     --deep-color: #3021a5;
     --nav-color: #000000c3;
     --max-width: 1200px;
@@ -194,6 +194,48 @@ table {
         margin: 0.2rem 0.5rem;
         border-radius: var(--radius-base); */
     }
+}
+
+/* 버튼 공통 스타일 */
+/* 기본 스타일 */
+.gf_button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: var(--radius-base);
+}
+
+/* 상태 스타일 */
+.gf_button_normal {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.gf_button_warning {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.gf_button_success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* 크기 스타일 */
+.gf_button_small {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.gf_button_large {
+    font-size: 20px;
+    padding: 15px 30px;
+}
+
+/* 추가 속성 */
+.gf_button_rounded {
+    border-radius: 50px;
 }
 
 /* admin.js */

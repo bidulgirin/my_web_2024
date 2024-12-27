@@ -13,11 +13,17 @@ function Contents() {
             <section>
                 <Main />
             </section>
-            <section className='gf_contentArea'>
+            <section>
                 <About />
                 <Project />
                 <ContactForm />
             </section>
+
+            <button class='gf_button gf_button_normal'>Normal</button>
+            <button class='gf_button gf_button_warning'>Warning</button>
+            <button class='gf_button gf_button_success gf_button_large'>
+                Success Large
+            </button>
         </section>
     );
 }
