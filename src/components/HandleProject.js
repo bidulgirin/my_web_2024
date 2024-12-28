@@ -1,9 +1,9 @@
 //프로젝트 등록 컴포넌트
 import React, { useState, useEffect } from 'react';
 import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
-import { uploadImage } from '../apis/uploadImage'; // 위에서 만든 이미지 업로드 함수
+import { uploadImage } from '../apis/uploadImage.js'; // 위에서 만든 이미지 업로드 함수
 
-const CreateProject = ({
+const HandleProject = ({
     id: initialID,
     title: initialTitle,
     desc: initialDesc,
@@ -103,6 +103,22 @@ const CreateProject = ({
         }
     };
 
+    // 프로젝트 삭제 함수
+    const deleteProject = async (id) => {
+        if (window.confirm('정말로 삭제하시겠습니까?')) {
+            const { error } = await supabase
+                .from('project')
+                .delete()
+                .match({ id });
+            if (error) {
+                console.error('프로젝트 삭제 실패:', error);
+            } else {
+                // 로컬 상태에서 삭제
+                console.log('프로젝트가 삭제되었습니다.');
+            }
+        }
+    };
+
     return (
         <section className='gf_formLayout'>
             {message && <p>{message}</p>}
@@ -139,12 +155,13 @@ const CreateProject = ({
                 </div>
                 <div className='gf_form'>
                     <input type='file' onChange={handleFileChange} />
+                    <br />
                     <button
-                        className='gf_smallBtn'
+                        className='gf_btn gf_btn_upload'
                         onClick={handleUpload}
                         disabled={loading}
                     >
-                        {loading ? '업로드 중...' : '이미지 업로드'}
+                        {loading ? '업로드 중...' : '선택한 이미지 업로드'}
                     </button>
 
                     {imgUrl && (
@@ -174,12 +191,22 @@ const CreateProject = ({
                         />
                     </label>
                 </div>
-                <button className='gf_btn' type='submit'>
+                <button
+                    className={`gf_btn ${id ? 'gf_btn_modify' : 'gf_btn_normal'}`}
+                    type='submit'
+                >
                     {id ? '수정하기' : '등록하기'}
+                </button>
+
+                <button
+                    className='gf_btn gf_btn_delete'
+                    onClick={() => deleteProject(id)}
+                >
+                    삭제하기
                 </button>
             </form>
         </section>
     );
 };
 
-export default CreateProject;
+export default HandleProject;

@@ -6,14 +6,7 @@ function Main() {
     return (
         <section className={styles.main}>
             <div className={styles.video_layout}>
-                <video
-                    className={styles.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    reverse
-                >
+                <video className={styles.video} autoPlay muted loop playsInline>
                     {/* 영상 파일 경로를 source 태그로 연결 */}
                     <source src={main_video} type='video/mp4' />
                     {/* 대체 메시지 */}

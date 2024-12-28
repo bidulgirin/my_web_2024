@@ -206,6 +206,15 @@ table {
     color: #fff;
 }
 
+.gf_btn_modify {
+    background-color: #ffaa00;
+    color: #fff;
+}
+.gf_btn_upload {
+    background-color: #008cff;
+    color: #fff;
+}
+
 /* 크기 스타일 */
 .gf_btn_small {
     font-size: 0.8rem;

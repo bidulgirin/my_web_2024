@@ -4,7 +4,7 @@ import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supab
 import { token } from '../apis/Token.js';
 import useModal from '../apis/useModal';
 import Modal from './Modal';
-import CreateProject from './CreateProject.js';
+import HandleProject from './HandleProject.js';
 import NoData from '../components/NoData.js';
 import noimg from '../img/noimg.jpg';
 // css
@@ -19,6 +19,16 @@ const Project = () => {
         openModal: openCreateModal,
         closeModal: closeCreateModal,
     } = useModal();
+
+    // 특정 프로젝트 수정 모달 열기
+    const openEditModal = (projectId) => {
+        setActiveModalId(projectId);
+    };
+
+    // 수정 모달 닫기
+    const closeEditModal = () => {
+        setActiveModalId(null);
+    };
 
     // 프로젝트등록한 데이터 가져오기
     useEffect(() => {
@@ -35,21 +45,9 @@ const Project = () => {
         fetchProjects();
     }, []);
 
-    // 특정 프로젝트 수정 모달 열기
-    const openEditModal = (projectId) => {
-        setActiveModalId(projectId);
-    };
-
-    // 수정 모달 닫기
-    const closeEditModal = () => {
-        setActiveModalId(null);
-    };
-
-    // 삭제 기능 만들어야함
-
     return (
         <div className={styles.lf_projectLayout}>
-            <h1>PROJECT</h1>
+            <h1>프로젝트!!!!!!!</h1>
             <ul className='gf_contents'>
                 {projects?.length > 0
                     ? projects?.map((project) => (
@@ -57,21 +55,19 @@ const Project = () => {
                               {token && (
                                   <>
                                       <button
-                                          className='gf_btn'
+                                          className='gf_btn gf_btn_modify'
                                           onClick={() =>
                                               openEditModal(project.id)
                                           }
                                       >
                                           수정하기
                                       </button>
-                                      <button className='gf_btn gf_btn_delete'>
-                                          삭제하기
-                                      </button>
+
                                       <Modal
                                           isOpen={activeModalId === project.id}
                                           closeModal={closeEditModal}
                                       >
-                                          <CreateProject
+                                          <HandleProject
                                               id={project?.id || null}
                                               title={project?.title || ''}
                                               desc={project?.desc || ''}
@@ -103,14 +99,17 @@ const Project = () => {
             {/* 관리자만 보이도록 설정 ( 토큰 유무 ) */}
             {token && (
                 <>
-                    <button className='gf_btn' onClick={openCreateModal}>
+                    <button
+                        className='gf_btn gf_btn_normal'
+                        onClick={openCreateModal}
+                    >
                         프로젝트 등록하기
                     </button>
                     <Modal
                         isOpen={isCreateModalOpen}
                         closeModal={closeCreateModal}
                     >
-                        <CreateProject />
+                        <HandleProject />
                     </Modal>
                 </>
             )}

@@ -1,0 +1,19 @@
+.lf_adminLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    color: white;
+}
+.lf_loginArea form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+}
+.lf_adminLayout {
+}
+.lf_loginBtn {
+}
