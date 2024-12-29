@@ -129,6 +129,7 @@ const HandleProject = ({
                         <input
                             type='text'
                             value={title}
+                            className='gf_input'
                             onChange={(e) => setTitle(e.target.value)}
                             required
                         />
@@ -139,6 +140,7 @@ const HandleProject = ({
                         <span className='gf_formTitle'>설명</span>
                         <textarea
                             value={desc}
+                            className='gf_input'
                             onChange={(e) => setDesc(e.target.value)}
                             required
                         />
@@ -148,6 +150,7 @@ const HandleProject = ({
                     <label>
                         <span className='gf_formTitle'>링크</span>
                         <input
+                            className='gf_input'
                             value={link}
                             onChange={(e) => setLink(e.target.value)}
                         />
@@ -186,6 +189,7 @@ const HandleProject = ({
                     <label>
                         <span className='gf_formTitle'>이미지url</span>
                         <input
+                            className='gf_input'
                             value={imgUrl}
                             onChange={(e) => setImgUrl(e.target.value)}
                         />

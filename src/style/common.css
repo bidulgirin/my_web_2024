@@ -35,6 +35,7 @@
     --input-box-color: #efefef;
     --line-height: 1.5;
     --point-font: 'LOTTERIADDAG';
+    --base-inputSize: 250px;
 }
 
 /* 다크 모드 */
@@ -154,8 +155,11 @@ table {
 }
 
 .gf_input {
-    border-color: var(--input-box-color);
-    border-radius: var(--radius-base);
+    border: 1px solid var(--input-box-color);
+    border-radius: var(--radius-base/2);
+    background-color: white;
+    max-width: var(--base-inputSize);
+    min-width: var(--base-inputSize);
 }
 
 .gf_header {
