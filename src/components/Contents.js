@@ -11,9 +11,7 @@ import UserStatus from './UserStatus';
 function Contents() {
     return (
         <section>
-            <div className={`gf_fixed gf_userState`}>
-                <UserStatus />
-            </div>
+            <UserStatus />
             <section>
                 <Main />
             </section>

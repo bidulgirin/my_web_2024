@@ -7,7 +7,7 @@ function UserStatus() {
     return (
         <>
             {token && (
-                <div className='gf_userState'>
+                <div className='gf_fixed gf_userState'>
                     <div>
                         환영합니다
                         <br />
