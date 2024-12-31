@@ -23,10 +23,10 @@ function Contents() {
                 <ContactForm />
             </section>
 
-            <button className='gf_button gf_button_normal'>Normal</button>
-            <button className='gf_button gf_button_warning'>Warning</button>
+            <button className='gf_button gf_button_normal'>일반</button>
+            <button className='gf_button gf_button_warning'>위기!</button>
             <button className='gf_button gf_button_success gf_button_large'>
-                Success Large
+                크다
             </button>
         </section>
     );
