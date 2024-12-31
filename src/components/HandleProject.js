@@ -201,13 +201,14 @@ const HandleProject = ({
                 >
                     {id ? '수정하기' : '등록하기'}
                 </button>
-
-                <button
-                    className='gf_btn gf_btn_delete'
-                    onClick={() => deleteProject(id)}
-                >
-                    삭제하기
-                </button>
+                {id && (
+                    <button
+                        className='gf_btn gf_btn_delete'
+                        onClick={() => deleteProject(id)}
+                    >
+                        삭제하기
+                    </button>
+                )}
             </form>
         </section>
     );

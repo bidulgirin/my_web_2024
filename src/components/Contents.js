@@ -6,10 +6,14 @@ import { token } from '../apis/Token';
 import HandleProject from './HandleProject';
 import Main from './Main';
 import ContactForm from './ContactFrom';
+import UserStatus from './UserStatus';
 
 function Contents() {
     return (
         <section>
+            <div className={`gf_fixed gf_userState`}>
+                <UserStatus />
+            </div>
             <section>
                 <Main />
             </section>

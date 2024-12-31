@@ -46,8 +46,8 @@ const Project = () => {
     }, []);
 
     return (
-        <div className={styles.lf_projectLayout}>
-            <h1>기여한 프로젝트</h1>
+        <div className='gf_contentArea'>
+            <div className='gf_title'>기여한 프로젝트</div>
             <ul className='gf_contents'>
                 {projects?.length > 0
                     ? projects?.map((project) => (

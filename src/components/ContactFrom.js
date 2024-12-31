@@ -47,7 +47,6 @@ const ContactForm = () => {
 
     return (
         <div classNameName={`gf_contentArea ${styles.lf_contactFromLayout}`}>
-            <h2>Contact Me</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     To:
@@ -55,7 +54,7 @@ const ContactForm = () => {
                         type='email'
                         name='to'
                         value={formData.to}
-                        onChange={handleChange}
+                        readOnly
                         required
                     />
                 </label>
@@ -121,13 +120,13 @@ const ContactForm = () => {
                                         className='contact__input'
                                         id='name'
                                         required
-                                        placeholder='First name'
+                                        placeholder='name'
                                     />
                                     <label
                                         for='name'
                                         className='contact__label'
                                     >
-                                        First Name
+                                        이름
                                     </label>
                                 </div>
 

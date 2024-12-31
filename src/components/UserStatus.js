@@ -9,7 +9,10 @@ function UserStatus() {
             {token && (
                 <div className='gf_userState'>
                     <div>
-                        환영합니다. 관리자님
+                        환영합니다
+                        <br />
+                        관리자님
+                        <br />
                         <button className='gf_logoutBtn' onClick={logout}>
                             로그아웃
                         </button>
