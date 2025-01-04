@@ -6,7 +6,13 @@ import styles from '../style/about.module.css';
 function About() {
     return (
         <div className={` ${styles.lf_aboutLayout}`}>
-            <div className={styles.lf_aboutText}>왼쪽 컨텐츠</div>
+            <div className={styles.lf_aboutText}>
+                <h1>제목</h1>
+                <div>work</div>
+                <div>HTML,CSS,JAVASCRIPT,PHOTOSHOP,ILLUSTRATOR,SQL</div>
+                <div>공부중</div>
+                <div>REACT,TYPESCRIPT,FLUTTER,SUPABASE,NEXT,SUPABASE</div>
+            </div>
             <div className={styles.lf_aboutAni}>
                 <div style={{ width: '300px', height: '300px' }}>
                     <DotLottieReact
