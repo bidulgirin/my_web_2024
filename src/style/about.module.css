@@ -1,13 +1,41 @@
 .lf_aboutLayout {
-    background-color: var(--background-color);
+    color: var(--white-color);
+}
+.lf_aboutContents {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 0 1rem;
-    color: white;
+    justify-content: space-between;
 }
 .lf_aboutText {
-    width: 50%;
+    width: 30%;
+    background-color: #000;
+    border-radius: var(--base-radius);
+    padding: 1rem;
 }
 .lf_aboutAni {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.lf_subTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--point-color);
+}
+.lf_abouts {
+    margin-bottom: 0.5rem;
+}
+.lf_aboutBack {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: var(--point-color);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.lf_aboutBack::after {
+    content: '';
 }
