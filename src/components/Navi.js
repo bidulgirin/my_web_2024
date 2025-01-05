@@ -4,29 +4,15 @@ import { Link } from 'react-router-dom'; // 페이지 이동을 위한 링크 �
 
 function Navi() {
     return (
-        <nav style={styles.navi}>
-            <Link to='/' style={styles.link}>
+        <nav className='gf_navi'>
+            <Link to='/' className='gf_link'>
                 home
             </Link>
-            <Link to='/admin' style={styles.link}>
+            <Link to='/admin' className='gf_link'>
                 admin
             </Link>
         </nav>
     );
 }
-
-const styles = {
-    navi: {
-        display: 'flex',
-        gap: '1rem',
-        alignItems: 'center',
-    },
-
-    link: {
-        color: 'white',
-        textDecoration: 'none',
-        fontSize: '1rem',
-    },
-};
 
 export default Navi;

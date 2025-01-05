@@ -28,12 +28,13 @@
 }
 /* 라이트 모드 */
 :root {
-    --background-color: #121212;
+    --background-color: #fdfdfd;
     --text-color: #000;
     --main-color: #ffd2d2;
     --sub-color: #c9d8b7;
     --point-color: #fc3d03;
     --deep-color: #3021a5;
+    --light-background-color: #dedede;
     --nav-color: #000000c3;
     --font-size-base: 15px;
     --font-design-base: Pretendard-Regular;
@@ -99,6 +100,7 @@
 
 /* dark mode */
 .dark-mode {
+    --background-color: #121212;
     --text-color: #e0e0e0;
     --main-color: #282828;
     --deep-color: #0f0a31;
@@ -132,7 +134,7 @@ h4 {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--text-color);
 }
 
 button {
@@ -163,6 +165,7 @@ table {
 .gf_title {
     font-family: var(--point-font);
     font-size: var(--font-pointTtitle);
+    color: var(--text-color);
 }
 .gf_desc {
     font-size: 0.9rem;
@@ -172,6 +175,7 @@ table {
     margin: 0 auto;
     max-width: var(--content-maxWidth);
     width: var(--content-width);
+    background-color: var(--background-color);
 }
 .gf_fixed {
     position: fixed;
@@ -188,7 +192,7 @@ table {
         max-width: calc((100% - (2 * var(--gap))) / 3);
         min-width: calc((100% - (2 * var(--gap))) / 3);
         border-radius: var(--base-radius);
-        background-color: rgb(255, 255, 255);
+        background-color: var(--light-background-color);
         padding: 1rem;
         margin-bottom: 1rem;
         .title {
@@ -211,7 +215,9 @@ table {
         }
     }
 }
-
+.gf_point_color {
+    color: var(--point-color);
+}
 .gf_contentImgArea {
     width: 100%;
     aspect-ratio: 16 / 9; /* 16:9 비율 */
@@ -226,7 +232,9 @@ table {
         display: block;
     }
 }
-
+.gf_light_background {
+    background-color: var(--light-background-color);
+}
 .gf_input {
     border: 1px solid var(--input-box-color);
     border-radius: var(--base-radius/2);
@@ -244,7 +252,6 @@ table {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    color: white;
     border-radius: 0px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.078);
     margin: 0px;
@@ -255,6 +262,19 @@ table {
         margin: 0.2rem 0.5rem;
         border-radius: var(--base-radius); */
     }
+}
+/* 네비 공통 스타일 */
+.gf_navi {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.gf_link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 /* 버튼 공통 스타일 */
@@ -270,7 +290,10 @@ table {
     background-color: #f0f0f0;
     color: #333;
 }
-
+.gf_btn_warning {
+    background-color: #ffce1e;
+    color: #333;
+}
 .gf_btn_delete {
     background-color: #ff0000;
     color: #fff;
@@ -319,7 +342,7 @@ table {
 
 .gf_logoutBtn {
     background-color: var(--point-color);
-    color: var(--white-color);
+    color: var(--text-color);
     padding: 0.5rem;
 }
 

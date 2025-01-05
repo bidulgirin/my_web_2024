@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../style/contactFrom.css';
+import supabase from '../apis/supabase.js';
+import Cookies from 'js-cookie';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
-        to: 'de05164@gmail.com',
+        name: '',
         subject: '',
-        html: '',
+        message: '',
+        phone: '',
+        email: '',
     });
 
     const [status, setStatus] = useState('');
+    const [jobStatus, setJobStatus] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,70 +26,57 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            const response = await fetch(
-                'https://<YOUR_SUPABASE_PROJECT>.functions.supabase.co/send-email',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                }
-            );
+        // 쿠키에서 중복 확인
+        const hasSubmitted = Cookies.get(`submitted_${formData.email}`);
+        if (hasSubmitted) {
+            alert('메일 접수 완료되었습니다');
+            return;
+        }
 
-            if (!response.ok) {
-                throw new Error('Failed to send email');
-            }
+        const { data, error } = await supabase
+            .from('inquiry')
+            .insert([formData]);
 
-            const data = await response.json();
-            setStatus('Email sent successfully!');
-            console.log(data);
-        } catch (error) {
-            console.error('Error:', error);
-            setStatus('Failed to send email. Please try again.');
+        if (error) {
+            console.error('Insert Error:', error.message);
+            alert(`삽입 실패: ${error.message}`);
+        } else {
+            alert('보내기 성공');
+
+            // 성공적으로 전송된 경우, 쿠키에 저장
+            Cookies.set(`submitted_${formData.email}`, true, { expires: 1 }); // 쿠키 유효기간: 30일
+
+            // Form 데이터 초기화
+            setFormData({
+                name: '',
+                subject: '',
+                message: '',
+                phone: '',
+                email: '',
+            });
         }
     };
 
-    return (
-        <div classNameName={`gf_contentArea ${styles.lf_contactFromLayout}`}>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    To:
-                    <input
-                        type='email'
-                        name='to'
-                        value={formData.to}
-                        readOnly
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    Subject:
-                    <input
-                        type='text'
-                        name='subject'
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    Message:
-                    <textarea
-                        name='html'
-                        value={formData.html}
-                        onChange={handleChange}
-                        required
-                    ></textarea>
-                </label>
-                <br />
-                <button type='submit'>Send</button>
-            </form>
-            {status && <p>{status}</p>}
+    // 구직중인지 데이터 가져오기
+    useEffect(() => {
+        const fetchProjects = async () => {
+            const { data, error } = await supabase
+                .from('job_status')
+                .select('*');
 
+            if (error) {
+                console.error('Error fetching data:', error);
+            } else {
+                console.log('???', data);
+                setJobStatus(data[0].job_status);
+            }
+        };
+
+        fetchProjects();
+    }, []);
+    return (
+        <div className={`gf_light_background ${styles.lf_contactFromLayout}`}>
+            {status && <p>{status}</p>}
             <section className='contact section' id='contact'>
                 <div className='contact__container grid'>
                     <div className='contact__data'>
@@ -93,7 +85,9 @@ const ContactForm = () => {
                         </h2>
 
                         <p className='contact__description-1'>
-                            메일을 보내면 확인하는대로 답장하겠습니다
+                            현재는
+                            <br />
+                            <span className='gf_point_color'>{jobStatus}</span>
                         </p>
 
                         <p className='contact__description-2'>
@@ -109,7 +103,7 @@ const ContactForm = () => {
                         <h2 className='contact__title'>Send Me A Message</h2>
 
                         <form
-                            action=''
+                            onSubmit={handleSubmit}
                             className='contact__form'
                             id='contact-form'
                         >
@@ -117,34 +111,37 @@ const ContactForm = () => {
                                 <div className='contact__box'>
                                     <input
                                         type='text'
-                                        name='user_name'
+                                        name='name'
                                         className='contact__input'
                                         id='name'
+                                        value={formData.name}
+                                        onChange={handleChange}
                                         required
                                         placeholder='name'
                                     />
                                     <label
-                                        for='name'
+                                        htmlFor='name'
                                         className='contact__label'
                                     >
                                         이름
                                     </label>
                                 </div>
-
                                 <div className='contact__box'>
                                     <input
-                                        type='email'
-                                        name='user_email'
+                                        type='text'
+                                        name='phone'
                                         className='contact__input'
-                                        id='email'
+                                        id='phone'
+                                        value={formData.phone}
+                                        onChange={handleChange}
                                         required
-                                        placeholder='Email Address'
+                                        placeholder='phone'
                                     />
                                     <label
-                                        for='email'
+                                        htmlFor='subject'
                                         className='contact__label'
                                     >
-                                        Email Address
+                                        Phone
                                     </label>
                                 </div>
                             </div>
@@ -152,26 +149,54 @@ const ContactForm = () => {
                             <div className='contact__box'>
                                 <input
                                     type='email'
-                                    name='user_subject'
+                                    name='email'
+                                    className='contact__input'
+                                    id='email'
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder='Email Address'
+                                />
+                                <label
+                                    htmlFor='email'
+                                    className='contact__label'
+                                >
+                                    Email Address
+                                </label>
+                            </div>
+                            <div className='contact__box'>
+                                <input
+                                    type='text'
+                                    name='subject'
                                     className='contact__input'
                                     id='subject'
+                                    value={formData.subject}
+                                    onChange={handleChange}
                                     required
                                     placeholder='Subject'
                                 />
-                                <label for='subject' className='contact__label'>
+                                <label
+                                    htmlFor='subject'
+                                    className='contact__label'
+                                >
                                     Subject
                                 </label>
                             </div>
 
                             <div className='contact__box contact__area'>
                                 <textarea
-                                    name='user_message'
                                     id='message'
                                     className='contact__input'
                                     required
                                     placeholder='Message'
+                                    name='message'
+                                    value={formData.message}
+                                    onChange={handleChange}
                                 ></textarea>
-                                <label for='message' className='contact__label'>
+                                <label
+                                    htmlFor='message'
+                                    className='contact__label'
+                                >
                                     Message
                                 </label>
                             </div>
@@ -185,8 +210,8 @@ const ContactForm = () => {
                                 type='submit'
                                 className='contact__button button'
                             >
-                                <i className='ri-send-plane-line'></i> Send
-                                Message
+                                <i className='ri-send-plane-line'></i>
+                                Send Message
                             </button>
                         </form>
                     </div>

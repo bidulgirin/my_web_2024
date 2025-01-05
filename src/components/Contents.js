@@ -5,25 +5,17 @@ import About from './About';
 import Main from './Main';
 import ContactForm from './ContactFrom';
 import UserStatus from './UserStatus';
+import Buttons from './Buttons';
 
 function Contents() {
     return (
         <section>
             <UserStatus />
-            <section>
-                <Main />
-            </section>
-            <section>
-                <About />
-                <Project />
-                <ContactForm />
-            </section>
-
-            <button className='gf_button gf_button_normal'>일반</button>
-            <button className='gf_button gf_button_warning'>위기!</button>
-            <button className='gf_button gf_button_success gf_button_large'>
-                크다
-            </button>
+            <Main />
+            <About />
+            <Project />
+            <ContactForm />
+            <Buttons />
         </section>
     );
 }
