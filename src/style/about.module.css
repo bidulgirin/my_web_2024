@@ -2,15 +2,19 @@
     color: var(--white-color);
 }
 .lf_aboutContents {
+    width: 90%;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .lf_aboutText {
-    width: 30%;
-    background-color: #000;
+    width: 50%;
     border-radius: var(--base-radius);
     padding: 1rem;
+    color: var(--black-color);
 }
 .lf_aboutAni {
     width: 50%;
@@ -31,11 +35,27 @@
     position: absolute;
     top: 0%;
     right: 0%;
-    background-color: var(--point-color);
     width: 100%;
     height: 100%;
     z-index: -1;
 }
 .lf_aboutBack::after {
     content: '';
+}
+
+@media screen and (orientation: portrait) {
+    .lf_aboutContents {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lf_aboutText,
+    .lf_aboutAni {
+        width: 100%;
+    }
+
+    .lf_aboutAni {
+        order: -1; /* 애니메이션을 텍스트 위로 이동 */
+        height: 40vh; /* 세로 화면에서의 애니메이션 높이 조정 */
+    }
 }

@@ -7,6 +7,7 @@ import Modal from './Modal';
 import HandleProject from './HandleProject.js';
 import NoData from '../components/NoData.js';
 import noimg from '../img/noimg.jpg';
+import Masonry from 'react-masonry-css';
 // css
 import styles from '../style/project.module.css';
 
@@ -45,74 +46,84 @@ const Project = () => {
         fetchProjects();
     }, []);
 
-    return (
-        <div className='gf_contentArea'>
-            <div className='gf_title'>기여한 프로젝트</div>
-            <ul className='gf_contents'>
-                {projects?.length > 0
-                    ? projects?.map((project) => (
-                          <li className='gf_content' key={project.id}>
-                              {token && (
-                                  <>
-                                      <button
-                                          className='gf_btn gf_btn_modify'
-                                          onClick={() =>
-                                              openEditModal(project.id)
-                                          }
-                                      >
-                                          수정하기
-                                      </button>
+    const breakpointColumns = {
+        default: 3,
+        1100: 2,
+        700: 1
+    };
 
-                                      <Modal
-                                          isOpen={activeModalId === project.id}
-                                          closeModal={closeEditModal}
-                                      >
-                                          <HandleProject
-                                              id={project?.id || null}
-                                              title={project?.title || ''}
-                                              desc={project?.desc || ''}
-                                              link={project?.link || ''}
-                                              imgUrl={project?.imgUrl || ''}
-                                          />
-                                      </Modal>
-                                  </>
-                              )}
-                              <a
-                                  href={project.link}
-                                  target='_blank'
-                                  rel='noreferrer'
-                              >
-                                  <div className='gf_contentImgArea'>
-                                      <img
-                                          className='gf_project_img'
-                                          src={project?.imgUrl || noimg}
-                                          alt='Project'
-                                      />
-                                  </div>
-                                  <div className='title'>{project.title}</div>
-                                  <div>{project.desc}</div>
-                              </a>
-                          </li>
-                      ))
-                    : NoData('프로젝트')}
-            </ul>
-            {/* 관리자만 보이도록 설정 ( 토큰 유무 ) */}
-            {token && (
-                <>
-                    <button
-                        className='gf_btn gf_btn_normal'
-                        onClick={openCreateModal}
-                    >
-                        프로젝트 등록하기
-                    </button>
-                    <Modal
-                        isOpen={isCreateModalOpen}
-                        closeModal={closeCreateModal}
-                    >
-                        <HandleProject />
-                    </Modal>
-                </>
-            )}
+    return (
+        <div className={`${styles.projectContainer}`}>
+            <div className='gf_contentArea'>
+                <div className='gf_title'>기여한 프로젝트</div>
+                <div className={styles.zigzagGrid}>
+                    {projects?.length > 0
+                        ? projects?.map((project, index) => (
+                            <div 
+                                className={`${styles.projectCard} ${styles[`offset${index % 3}`]}`} 
+                                key={project.id}
+                            >
+                                {token && (
+                                    <div className={styles.adminControls}>
+                                        <button
+                                            className='gf_btn gf_btn_modify'
+                                            onClick={() => openEditModal(project.id)}
+                                        >
+                                            수정하기
+                                        </button>
+                                        <Modal
+                                            isOpen={activeModalId === project.id}
+                                            closeModal={closeEditModal}
+                                        >
+                                            <HandleProject
+                                                id={project?.id || null}
+                                                title={project?.title || ''}
+                                                desc={project?.desc || ''}
+                                                link={project?.link || ''}
+                                                imgUrl={project?.imgUrl || ''}
+                                            />
+                                        </Modal>
+                                    </div>
+                                )}
+                                <a
+                                    href={project.link}
+                                    target='_blank'
+                                    rel='noreferrer'
+                                    className={styles.projectLink}
+                                >
+                                    <div className={styles.imageWrapper}>
+                                        <img
+                                            src={project?.imgUrl || noimg}
+                                            alt='Project'
+                                        />
+                                    </div>
+                                    <div className={styles.projectInfo}>
+                                        <h3>{project.title}</h3>
+                                        <p>{project.desc}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        ))
+                        : NoData('프로젝트')}
+                </div>
+                {/* 관리자만 보이도록 설정 ( 토큰 유무 ) */}
+                {token && (
+                    <>
+                        <button
+                            className='gf_btn gf_btn_normal'
+                            onClick={openCreateModal}
+                        >
+                            프로젝트 등록하기
+                        </button>
+                        <Modal
+                            isOpen={isCreateModalOpen}
+                            closeModal={closeCreateModal}
+                        >
+                            <HandleProject />
+                        </Modal>
+                    </>
+                )}
+            </div>
         </div>
     );
 };

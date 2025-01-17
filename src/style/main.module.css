@@ -7,7 +7,7 @@
     background: var(--background-color);
 }
 
-.video_layout,
+.main_layout,
 .text_layout {
     max-width: var(--content-maxWidth);
     width: var(--content-width);
@@ -15,7 +15,7 @@
     object-fit: cover; /* 영상이 영역에 맞게 꽉 차도록 설정 */
     overflow: hidden;
 }
-.video_layout {
+.main_layout {
     position: absolute;
     top: 50%;
     left: 50%;

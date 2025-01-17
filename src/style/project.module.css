@@ -1,0 +1,109 @@
+.projectContainer{
+    background-color: #333;
+}
+.zigzagGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.projectCard {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 3열 지그재그 패턴 */
+.offset0 {
+    transform: translateY(0);
+}
+
+.offset1 {
+    transform: translateY(3rem);
+}
+
+.offset2 {
+    transform: translateY(6rem);
+}
+
+.projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.offset0:hover {
+    transform: translateY(-5px);
+}
+
+.offset1:hover {
+    transform: translateY(calc(3rem - 5px));
+}
+
+.offset2:hover {
+    transform: translateY(calc(6rem - 5px));
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.projectCard:hover .imageWrapper img {
+    transform: scale(1.05);
+}
+
+.projectInfo {
+    padding: 1.5rem;
+}
+
+.projectInfo h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.projectInfo p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.projectLink {
+    text-decoration: none;
+    display: block;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1100px) {
+    .zigzagGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .offset0, .offset1, .offset2 {
+        transform: translateY(0);
+    }
+
+    .offset0:hover, .offset1:hover, .offset2:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .zigzagGrid {
+        grid-template-columns: 1fr;
+    }
+}

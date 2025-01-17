@@ -67,7 +67,6 @@ const ContactForm = () => {
             if (error) {
                 console.error('Error fetching data:', error);
             } else {
-                console.log('???', data);
                 setJobStatus(data[0].job_status);
             }
         };
