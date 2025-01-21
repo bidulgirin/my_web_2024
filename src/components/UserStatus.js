@@ -1,9 +1,10 @@
 // 유저 정보 표시
 import React from 'react';
 import { token } from '../apis/Token'; // 토큰 유틸리티 가져오기
-import { logout } from '../apis/LogOut';
+import LoginController from '../hooks/LoginController';
 
 function UserStatus() {
+    const { onLogout } = LoginController();
     return (
         <>
             {token && (
@@ -13,7 +14,7 @@ function UserStatus() {
                         <br />
                         관리자님
                         <br />
-                        <button className='gf_logoutBtn' onClick={logout}>
+                        <button className='gf_logoutBtn' onClick={onLogout}>
                             로그아웃
                         </button>
                     </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../style/contactFrom.css';
-import supabase from '../apis/supabase.js';
+import supabase from '../lib/supabase'; // supabase.js에서 설정한 supabase 클라이언트
 import Cookies from 'js-cookie';
 
 const ContactForm = () => {

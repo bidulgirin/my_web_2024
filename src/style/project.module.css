@@ -1,4 +1,4 @@
-.projectContainer{
+.projectContainer {
     background-color: #333;
 }
 .zigzagGrid {
@@ -16,20 +16,9 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* 3열 지그재그 패턴 */
-.offset0 {
-    transform: translateY(0);
-}
-
-.offset1 {
-    transform: translateY(3rem);
-}
-
-.offset2 {
-    transform: translateY(6rem);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .projectCard:hover {
@@ -93,11 +82,15 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .offset0, .offset1, .offset2 {
+    .offset0,
+    .offset1,
+    .offset2 {
         transform: translateY(0);
     }
 
-    .offset0:hover, .offset1:hover, .offset2:hover {
+    .offset0:hover,
+    .offset1:hover,
+    .offset2:hover {
         transform: translateY(-5px);
     }
 }

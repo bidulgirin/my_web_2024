@@ -1,5 +1,6 @@
 // 이미지 업로드 api
-import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
+import supabase from '../lib/supabase'; // supabase.js에서 설정한 supabase 클라이언트
+import { token } from '../apis/Token'; // 토큰 유틸리티 가져오기
 
 /**
  * Supabase 스토리지에 파일 업로드 후 public URL 반환
@@ -21,7 +22,6 @@ export const uploadImage = async (
 ) => {
     const cleanedFileName = sanitizeFileName(file.name);
     const fileName = `${Date.now()}_${cleanedFileName}`; // 파일 이름 고유화
-    const token = localStorage.getItem('access_token'); // 로컬 스토리지에서 토큰 가져오기
     try {
         console.log('bucketName', bucketName);
         // 파일을 Supabase Storage에 업로드
@@ -39,8 +39,6 @@ export const uploadImage = async (
             console.error('Upload Error:', error);
             throw error;
         }
-
-        console.log('Upload Success:', data);
 
         // Public URL 가져오기
         const { data: publicUrlData } = supabase.storage

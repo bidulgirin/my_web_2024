@@ -1,8 +1,7 @@
 //프로젝트 등록 컴포넌트
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     getProjects,
-    getProjectsById,
     createProjects,
     updateProjects,
     deleteProjectSoft,
@@ -11,14 +10,6 @@ import {
 const ProjectController = () => {
     const [projects, setProjects] = useState([]); // 프로젝트 데이터를 담을 상태
     const [loading, setLoading] = useState(true);
-
-    // 초기값 설정
-    // useEffect(() => {
-    //     setTitle(initialTitle || '');
-    //     setDesc(initialDesc || '');
-    //     setLink(initialLink || '');
-    //     setImgUrl(initialImgUrl || '');
-    // }, [initialTitle, initialDesc, initialLink, initialImgUrl]);
 
     // project 불러오기
     const onGetProjects = async () => {

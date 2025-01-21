@@ -7,7 +7,6 @@ const Modal = ({ isOpen, closeModal, children }) => {
     return (
         <div
             className={styles.modal_backdrop}
-            onClick={closeModal}
             role='presentation' // 스크린 리더 접근성을 위한 속성
         >
             <div

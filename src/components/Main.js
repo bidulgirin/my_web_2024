@@ -6,19 +6,13 @@ function Main() {
     return (
         <section className={styles.main}>
             <div className={styles.main_layout}>
-                {/* <video className={styles.video} autoPlay muted loop playsInline>
-                    <source src={main_video} type='video/mp4' />
-                    Your browser does not support the video tag.
-                </video> */}
-
-                <img 
-                    className={styles.video}
-                    src={main_img} 
-                    alt='main_video' 
-                />
-                <div className={(styles.gf_desc, styles.lf_til)}>- Claude Monet -</div>
+                <img className={styles.video} src={main_img} alt='main_video' />
+                <div className={(styles.gf_desc, styles.lf_til)}>
+                    - Claude Monet -
+                </div>
                 <div className={(styles.gf_title, styles.lf_title)}>
-                Color is my day-long obsession,<br /> joy and torment.
+                    Color is my day-long obsession,
+                    <br /> joy and torment.
                 </div>
             </div>
 

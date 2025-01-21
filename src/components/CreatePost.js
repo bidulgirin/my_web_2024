@@ -1,6 +1,6 @@
 // 이메일 보내기
 import React, { useState } from 'react';
-import supabase from '../apis/supabase.js'; // supabase.js에서 설정한 supabase 클라이언트
+import supabase from '../lib/supabase'; // supabase.js에서 설정한 supabase 클라이언트
 
 const CreatePost = () => {
     const [title, setTitle] = useState('');

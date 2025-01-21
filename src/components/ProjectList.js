@@ -9,9 +9,9 @@ const ProjectList = ({
     onDeleteProjects = (id) => {},
 }) => {
     return (
-        <div>
+        <article>
             {projectData?.length >= 1 ? (
-                <ul className='flex flex-col gap-6'>
+                <ul className='gf_contents'>
                     {(projectData ?? []).map((project) => {
                         return (
                             <ProjectListItem
@@ -27,7 +27,7 @@ const ProjectList = ({
             ) : (
                 <div>{loading ? 'Loading...' : '데이터가 없습니다'}</div>
             )}
-        </div>
+        </article>
     );
 };
 

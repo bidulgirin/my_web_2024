@@ -3,6 +3,7 @@ import { uploadImage } from '../apis/uploadImage.js'; // 위에서 만든 이미
 
 const ProjectForm = ({
     EditContent,
+    closeModal,
     isEdit,
     loading,
     onCreateProject = (title, desc, imgUrl, link) => {},
@@ -114,16 +115,20 @@ const ProjectForm = ({
             {isEdit ? (
                 <div
                     className='gf_btn gf_btn_modify'
-                    onClick={() =>
-                        onUpdateProjects(id, title, desc, imgUrl, link)
-                    }
+                    onClick={() => {
+                        onUpdateProjects(id, title, desc, imgUrl, link);
+                        closeModal();
+                    }}
                 >
                     수정하기
                 </div>
             ) : (
                 <div
                     className={`gf_btn gf_btn_normal`}
-                    onClick={() => onCreateProject(title, desc, imgUrl, link)}
+                    onClick={() => {
+                        onCreateProject(title, desc, imgUrl, link);
+                        closeModal();
+                    }}
                 >
                     등록하기
                 </div>

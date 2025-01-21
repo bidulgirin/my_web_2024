@@ -86,6 +86,7 @@ const ProjectContainer = () => {
                             <ProjectForm
                                 isEdit={isEdit}
                                 EditContent={EditContent}
+                                closeModal={closeCreateModal}
                                 onCreateProject={(
                                     title,
                                     desc,
