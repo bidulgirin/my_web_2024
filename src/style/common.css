@@ -107,9 +107,13 @@
 }
 
 html {
-    scroll-behavior: smooth;
     font-size: var(font-size-base);
     -webkit-text-size-adjust: 100%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -382,11 +386,11 @@ table {
     }
 }
 /*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
-html.has-scroll-smooth {
+section.has-scroll-smooth {
     overflow: hidden;
 }
 
-html.has-scroll-dragging {
+section.has-scroll-dragging {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
