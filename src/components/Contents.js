@@ -1,6 +1,6 @@
 // 컨텐츠
 import React from 'react';
-import Project from './Project';
+import ProjectContainer from './ProjectContainer';
 import About from './About';
 import Main from './Main';
 import ContactForm from './ContactFrom';
@@ -13,7 +13,7 @@ function Contents() {
             <UserStatus />
             <Main />
             <About />
-            <Project />
+            <ProjectContainer />
             <ContactForm />
             <Buttons />
         </section>
