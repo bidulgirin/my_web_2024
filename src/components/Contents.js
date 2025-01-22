@@ -10,7 +10,6 @@ import Buttons from './Buttons';
 function Contents() {
     return (
         <section>
-            <UserStatus />
             <Main />
             <About />
             <ProjectContainer />

@@ -88,10 +88,10 @@ const ProjectForm = ({
                     <div>
                         <div className='gf_formTitle'>업로드된 이미지</div>
                         {/* <input 
-            type="text" 
-            value={imgUrl}
-            onChange={(e) => setImgUrl(e.target.value)}
-        /> */}
+                                type="text" 
+                                value={imgUrl}
+                                onChange={(e) => setImgUrl(e.target.value)}
+                            /> */}
                         <div>
                             <img
                                 src={imgUrl}

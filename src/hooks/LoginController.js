@@ -4,7 +4,7 @@ import {
     manageSession,
     startRefreshTimer,
 } from '../apis/auth';
-import { token, setToken, removeToken } from '../apis/Token'; // 토큰 유틸리티 가져오기
+import { token, setToken, removeToken, setExpireTime } from '../apis/Token'; // 토큰 유틸리티 가져오기
 import { useNavigate } from 'react-router-dom';
 
 const LoginController = () => {
@@ -28,7 +28,8 @@ const LoginController = () => {
                         accessToken: newSession.access_token,
                         refreshToken: newSession.refresh_token,
                     });
-                    console.log('Token refreshed successfully:', newSession);
+                    const expiresAt = result?.session.expires_at;
+                    setExpireTime(expiresAt); // 로컬스토리지에 만료 시간 알려주기
                 } else {
                     console.log('Failed to refresh token.');
                     onLogout();
@@ -37,13 +38,6 @@ const LoginController = () => {
             navigate('/');
             window.location.reload();
         }
-
-        // if (result) {
-        //     // 로그인 성공 시 JWT 토큰 확인
-        //     console.log('User:', result.user); // 유저 정보
-        //     console.log('Access Token:', result.session.access_token); // 액세스 토큰
-        //     //window.location.reload();
-        // }
     };
     // 로그인 하고 회원 정보 세션에 저장하는 함수
     const onLogout = async () => {

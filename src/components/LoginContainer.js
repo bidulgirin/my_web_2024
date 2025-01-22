@@ -16,7 +16,16 @@ const LoginContainer = () => {
                         <LoginForm onLogin={onLogin} />
                     </>
                 ) : (
-                    <div>어서오세요 </div>
+                    <div>
+                        [관리자앱으로 만들것들]
+                        <ul>
+                            <li>구직중 구직완료 등 상태 변경</li>
+                            <li>메세지 보낸것 한번에 보여주기</li>
+                            <li>메세지 오면 푸시알람오게하기 </li>
+                            <li>메세지 삭제버튼</li>
+                            <li>튼</li>
+                        </ul>
+                    </div>
                 )}
             </div>
         </div>

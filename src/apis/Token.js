@@ -20,13 +20,6 @@ export const setToken = ({ accessToken, refreshToken }) => {
 };
 
 /**
- * 로컬 스토리지에서 토큰 삭제하기
- */
-export const removeToken = () => {
-    localStorage.removeItem('tokens');
-};
-
-/**
  * 로컬 스토리지에서 Access Token 가져오기
  * @returns {string | null} - 저장된 Access Token
  */
@@ -48,3 +41,24 @@ export const getRefreshToken = () => {
 export const token = getAccessToken();
 
 //console.log('token', token);
+
+// 남은 시간 꺼내기 ( 서버에서 실시간으로 던저주지 않아서 실패!)
+export const getExpireTime = () => {
+    const expiresAt = localStorage.getItem('expiresAt') ?? '0';
+    console.log('expiresAt>>', expiresAt);
+    return expiresAt;
+};
+// 현재 남은 시간 저장하기
+export const setExpireTime = (expiresAt) => {
+    localStorage.setItem('expiresAt', JSON.stringify(expiresAt));
+};
+
+/**
+ * 로컬 스토리지에서 토큰 삭제하기
+ */
+export const removeToken = () => {
+    // localStorage.removeItem('tokens');
+    // localStorage.removeItem('expiresAt');
+
+    localStorage.clear();
+};

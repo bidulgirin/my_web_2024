@@ -8,6 +8,7 @@ import Contents from './components/Contents.js';
 
 // css
 import './style/common.css';
+import UserStatus from './components/UserStatus.js';
 
 function App() {
     const containerRef = useRef(null);
@@ -49,6 +50,7 @@ function App() {
                     </div>
                 </div>
             </LocomotiveScrollProvider>
+            <UserStatus />
         </Router>
     );
 }

@@ -1,6 +1,7 @@
 import supabase from '../lib/supabase'; // supabase.js에서 설정한 supabase 클라이언트
+import { removeToken } from './Token';
 
-// 로그인 하기
+// 로그인
 export const handleLogin = async (email, password) => {
     try {
         // Supabase의 signIn 메서드를 사용하여 로그인
@@ -30,7 +31,7 @@ export const handleLogout = async () => {
             await supabase.auth.signOut();
 
             // 토큰 제거 및 페이지 새로고침
-            // removeToken();
+            removeToken();
             window.location.reload();
         } catch (error) {
             console.error('로그아웃 처리 중 오류가 발생했습니다:', error);
@@ -97,3 +98,15 @@ export const startRefreshTimer = (session, onSessionUpdate) => {
         startRefreshTimer(data.session, onSessionUpdate); // 새 세션으로 타이머 재설정
     }, refreshBefore);
 };
+
+// supabase 리프레시 토큰 코드 주셈
+
+// export const refreshAccessToken = async () => {
+//     try {
+//         const result = await supabase.auth.refreshSession();
+//         console.log('연장됐냐?', result);
+//         return result.data;
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };

@@ -29,7 +29,6 @@ const LoginForm = ({ onLogin = () => {} }) => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
-
             <button
                 className={`gf_btn gf_btn_normal`}
                 type='button'

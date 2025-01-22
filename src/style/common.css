@@ -170,6 +170,9 @@ table {
     font-size: var(--font-pointTtitle);
     color: var(--text-color);
 }
+.gf_logo {
+    width: 10%;
+}
 .gf_desc {
     font-size: 0.9rem;
     color: #dedede;

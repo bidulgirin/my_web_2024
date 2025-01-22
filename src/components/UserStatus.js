@@ -1,7 +1,8 @@
 // 유저 정보 표시
 import React from 'react';
-import { token } from '../apis/Token'; // 토큰 유틸리티 가져오기
+import { getExpireTime, token } from '../apis/Token'; // 토큰 유틸리티 가져오기
 import LoginController from '../hooks/LoginController';
+import TokenExpirationTimer from './TokenExpirationTimer';
 
 function UserStatus() {
     const { onLogout } = LoginController();
@@ -17,6 +18,9 @@ function UserStatus() {
                         <button className='gf_logoutBtn' onClick={onLogout}>
                             로그아웃
                         </button>
+                        <TokenExpirationTimer
+                            expirationTime={getExpireTime()}
+                        />
                     </div>
                 </div>
             )}

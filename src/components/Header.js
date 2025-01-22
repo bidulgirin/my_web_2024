@@ -24,19 +24,13 @@ function Header() {
             ref={headerRef}
             className={isSticky ? 'gf_header isSticky' : 'gf_header'}
         >
-            <Link to='/' className='gf_title' style={styles.logo}>
-                로고
+            <Link to='/' className='gf_title gf_logo'>
+                <img src='' alt='...' />
             </Link>
             <Navi />
             <ToggleDarkMode />
         </div>
     );
 }
-
-const styles = {
-    logo: {
-        fontWeight: 'bold',
-    },
-};
 
 export default Header;
