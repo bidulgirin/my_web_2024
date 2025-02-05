@@ -1,7 +1,47 @@
 .lf_aboutLayoutContainer {
+    position: relative;
     background-color: var(--background-color2);
+    overflow: hidden;
 }
+@keyframes backgroundMove {
+    0% {
+        top: 0%;
+        left: 0%;
+    }
+    25% {
+        top: 0%;
+        left: 50%; /* 동(East) */
+    }
+    50% {
+        top: 50%; /* 남(South) */
+        left: 50%;
+    }
+    75% {
+        top: 50%;
+        left: 0%; /* 서(West) */
+    }
+    100% {
+        top: 0%; /* 북(North) */
+        left: 0%;
+    }
+}
+
+.background {
+    position: absolute;
+    filter: blur(50px) hue-rotate(200deg);
+    width: 50%;
+    z-index: 1;
+    opacity: 0.4;
+    top: 5%;
+    left: 5%;
+    transition: all 3s;
+
+    animation: backgroundMove 30s infinite alternate-reverse;
+}
+
 .lf_aboutLayout {
+    position: relative;
+    z-index: 2;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,6 +69,10 @@
     gap: 1rem;
     .txt {
         width: 50%;
+        .txt_title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
     }
 }
 .lf_aboutText {

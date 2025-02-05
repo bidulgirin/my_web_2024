@@ -207,7 +207,7 @@ table {
     margin: 0 auto;
     max-width: var(--content-maxWidth);
     width: var(--content-width);
-    padding-top: 2rem;
+    padding-top: 7rem;
     padding-bottom: 3rem;
 }
 .gf_fixed {

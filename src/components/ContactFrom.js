@@ -221,13 +221,6 @@ const ContactForm = () => {
                                 Send Message
                             </button>
                         </form>
-                        {/* <div className='gf_input_social'>
-                            <img
-                                src='assets/img/curved-arrow.svg'
-                                alt=''
-                                className='gf_input_social-arrow'
-                            />
-                        </div> */}
                     </div>
                 </div>
             </div>
