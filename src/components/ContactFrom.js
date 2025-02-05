@@ -80,7 +80,7 @@ const ContactForm = () => {
             <video
                 src={point_video}
                 preload='auto'
-                autoplay='autoplay'
+                autoPlay='autoPlay'
                 loop='loop'
                 muted='muted'
                 volume='0'
@@ -88,18 +88,20 @@ const ContactForm = () => {
             <div className='gf_contentArea'>
                 <div className='gf_title'>Contace Me</div>
                 <div className='contact section' id='contact'>
-                    <div className='contact__mail'>
-                        <p className='contact__description-1'>
+                    <div className='gf_input_mail'>
+                        <p className='gf_input_description-1'>
                             현재는
                             <br />
                             <span className='gf_point_color'>
                                 {jobStatus ?? '구직중'} 상태입니다
                             </span>
                         </p>
-                        <p className='contact__description-2'>
+                        <p className='gf_input_description-2'>
                             {jobStatus == '구직중' ? (
                                 <div>
-                                    적극적으로 구직중입니다 연락 남겨주세요!
+                                    적극적으로 구직중입니다
+                                    <br />
+                                    연락 주시면 빠른 시일내에 답장 드리겠습니다
                                 </div>
                             ) : (
                                 <div>
@@ -109,15 +111,15 @@ const ContactForm = () => {
                         </p>
                         <form
                             onSubmit={handleSubmit}
-                            className='contact__form'
+                            className='gf_input_form'
                             id='contact-form'
                         >
-                            <div className='contact__group'>
-                                <div className='contact__box'>
+                            <div className='gf_input_group'>
+                                <div className='gf_input_box'>
                                     <input
                                         type='text'
                                         name='name'
-                                        className='contact__input'
+                                        className='gf_input'
                                         id='name'
                                         value={formData.name}
                                         onChange={handleChange}
@@ -126,16 +128,16 @@ const ContactForm = () => {
                                     />
                                     <label
                                         htmlFor='name'
-                                        className='contact__label'
+                                        className='gf_input_label'
                                     >
-                                        이름
+                                        name
                                     </label>
                                 </div>
-                                <div className='contact__box'>
+                                <div className='gf_input_box'>
                                     <input
                                         type='text'
                                         name='phone'
-                                        className='contact__input'
+                                        className='gf_input'
                                         id='phone'
                                         value={formData.phone}
                                         onChange={handleChange}
@@ -144,18 +146,18 @@ const ContactForm = () => {
                                     />
                                     <label
                                         htmlFor='subject'
-                                        className='contact__label'
+                                        className='gf_input_label'
                                     >
                                         Phone
                                     </label>
                                 </div>
                             </div>
 
-                            <div className='contact__box'>
+                            <div className='gf_input_box'>
                                 <input
                                     type='email'
                                     name='email'
-                                    className='contact__input'
+                                    className='gf_input'
                                     id='email'
                                     value={formData.email}
                                     onChange={handleChange}
@@ -164,16 +166,16 @@ const ContactForm = () => {
                                 />
                                 <label
                                     htmlFor='email'
-                                    className='contact__label'
+                                    className='gf_input_label'
                                 >
                                     Email Address
                                 </label>
                             </div>
-                            <div className='contact__box'>
+                            <div className='gf_input_box'>
                                 <input
                                     type='text'
                                     name='subject'
-                                    className='contact__input'
+                                    className='gf_input'
                                     id='subject'
                                     value={formData.subject}
                                     onChange={handleChange}
@@ -182,16 +184,16 @@ const ContactForm = () => {
                                 />
                                 <label
                                     htmlFor='subject'
-                                    className='contact__label'
+                                    className='gf_input_label'
                                 >
                                     Subject
                                 </label>
                             </div>
 
-                            <div className='contact__box contact__area'>
+                            <div className='gf_input_box gf_input_area'>
                                 <textarea
                                     id='message'
-                                    className='contact__input'
+                                    className='gf_input'
                                     required
                                     placeholder='Message'
                                     name='message'
@@ -200,25 +202,32 @@ const ContactForm = () => {
                                 ></textarea>
                                 <label
                                     htmlFor='message'
-                                    className='contact__label'
+                                    className='gf_input_label'
                                 >
                                     Message
                                 </label>
                             </div>
 
                             <p
-                                className='contact__message'
+                                className='gf_input_message'
                                 id='contact-message'
                             ></p>
 
                             <button
                                 type='submit'
-                                className='contact__button button'
+                                className='gf_input_button button'
                             >
                                 <i className='ri-send-plane-line'></i>
                                 Send Message
                             </button>
                         </form>
+                        {/* <div className='gf_input_social'>
+                            <img
+                                src='assets/img/curved-arrow.svg'
+                                alt=''
+                                className='gf_input_social-arrow'
+                            />
+                        </div> */}
                     </div>
                 </div>
             </div>

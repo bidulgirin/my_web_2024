@@ -106,6 +106,21 @@
     --text-color: #e0e0e0;
     --main-color: #282828;
     --deep-color: #0f0a31;
+    .gf_logo {
+        img {
+            filter: brightness(1);
+        }
+    }
+    .gf_navi {
+        .gf_link {
+            color: var(--white-color);
+        }
+    }
+    .gf_header,
+    .gf_title,
+    label {
+        color: var(--white-color);
+    }
 }
 
 html {
@@ -264,18 +279,45 @@ table {
 .gf_light_background {
     background-color: var(--light-background-color);
 }
+.gf_input__box {
+    position: relative;
+    width: 100%;
+    height: 38px;
+}
+
 .gf_input {
+    position: relative;
     border: 1px solid var(--input-box-color);
     border-radius: var(--base-radius/2);
     background-color: white;
-    max-width: var(--base-inputSize);
-    min-width: var(--base-inputSize);
+}
+.gf_input_label {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: var(--text-color-light);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    background-color: var(--black-color);
+    padding: 8px;
+    pointer-events: none;
+    transition:
+        top 0.4s,
+        opacity 0.4s,
+        background-color 0.4s;
+    opacity: 0;
+}
+/* Move label up & sticky label */
+.gf_input:focus + .gf_input_label,
+.gf_input:not(:placeholder-shown) .gf_input:not(:focus) + .gf_input_label {
+    opacity: 1;
+    top: -16px;
 }
 
 .gf_header {
     position: fixed;
     width: 100%;
-    top: 0px;
+    top: -1px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
@@ -286,6 +328,7 @@ table {
     margin: 0px;
     transition: all 0.3s;
     color: black;
+    backdrop-filter: blur(10px);
 
     &.isSticky {
         background-color: var(--white-color);
@@ -302,7 +345,6 @@ table {
     display: flex;
     gap: 1rem;
     align-items: center;
-    backdrop-filter: blur(10px);
 }
 
 .gf_link {
@@ -487,4 +529,121 @@ section.has-scroll-dragging {
 [data-scroll-direction='horizontal'] .c-scrollbar_thumb {
     right: auto;
     bottom: 0;
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --font-size-base: 12px;
+        --font-pointTtitle: 2rem;
+    }
+}
+
+* {
+    --border-color: #dddddd;
+}
+
+.checkbox-label {
+    display: block;
+    background: var(gray);
+    height: 20px;
+    width: 50px;
+    border-radius: 20px;
+    margin: 20px auto;
+    position: relative;
+    box-shadow: 0 0 0 2px var(--border-color);
+
+    .on,
+    .off {
+        display: block;
+        position: absolute;
+        z-index: 0;
+        min-width: 300px;
+        line-height: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .on {
+        left: 0;
+        opacity: 0;
+        color: var(green);
+    }
+
+    .off {
+        right: 100px;
+        text-align: right;
+        opacity: 1;
+        color: #bbbbbb;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+        height: 20px;
+        width: 20px;
+        background: white;
+        box-shadow:
+            0 3px 3px rgba(0, 0, 0, 0.2),
+            0 0 0 2px var(--border-color);
+        transition: left 0.3s ease-in-out;
+    }
+}
+
+.checkbox {
+    position: absolute;
+    left: -5000px;
+
+    &:checked + .checkbox-label {
+        background: var(--point-color);
+        box-shadow: 0 0 0 2px var(--point-color);
+
+        .on {
+            left: 100px;
+            opacity: 1;
+        }
+
+        .off {
+            right: 0;
+            opacity: 0;
+        }
+
+        &:before {
+            left: 30px;
+            box-shadow:
+                0 3px 3px rgba(0, 0, 0, 0.2),
+                0 0 0 2px var(--point-color);
+        }
+    }
+}
+
+.checkbox.blue {
+    + .checkbox-label .on {
+        color: var(--background-color);
+    }
+
+    &:checked + .checkbox-label {
+        background: var(--background-color);
+        box-shadow: 0 0 0 2px var(--background-color);
+
+        .on {
+            left: 100px;
+            opacity: 1;
+        }
+
+        .off {
+            right: 0;
+            opacity: 0;
+        }
+
+        &:before {
+            left: 30px;
+            box-shadow:
+                0 3px 3px rgba(0, 0, 0, 0.2),
+                0 0 0 2px var(--background-color);
+        }
+    }
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { token } from '../apis/Token'; // 토큰 유틸리티 가져오기
 import LoginController from '../hooks/LoginController';
 import LoginForm from '../components/LoginForm';
-
+import login_main_img from '../img/admin.png';
 const LoginContainer = () => {
     const { onLogin } = LoginController();
 
@@ -12,7 +12,10 @@ const LoginContainer = () => {
             <div className={styles.lf_loginArea}>
                 {!token ? (
                     <>
-                        <h1>로그인</h1>
+                        <h1 className='gf_title'>관리자 로그인</h1>
+                        <div className={styles.lf_login_img}>
+                            <img src={login_main_img} alt='' />
+                        </div>
                         <LoginForm onLogin={onLogin} />
                     </>
                 ) : (
