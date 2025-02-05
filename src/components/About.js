@@ -8,7 +8,7 @@ function About() {
         <section className={styles.lf_aboutLayoutContainer}>
             <img
                 src={point_gradientImg}
-                className={styles.background}
+                className={styles.lf_background}
                 alt='gradient'
             />
             <div className={`${styles.lf_aboutLayout} gf_contentArea`}>

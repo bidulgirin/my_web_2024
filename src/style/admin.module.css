@@ -1,6 +1,10 @@
 * {
     --login_layout_width: 500px;
 }
+.lf_adminContainer {
+    width: 90%;
+    margin: 0 auto;
+}
 .lf_adminLayout {
     display: flex;
     flex-direction: column;
@@ -8,6 +12,9 @@
     justify-content: center;
     width: 100%;
     min-height: 100vh;
+}
+.lf_admin_title {
+    text-align: center;
 }
 .lf_login_img {
     display: block;

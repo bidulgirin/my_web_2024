@@ -3,11 +3,7 @@ import React from 'react';
 import LoginContainer from './LoginContainer';
 
 function Admin() {
-    return (
-        <div className='gf_contentArea'>
-            <LoginContainer />
-        </div>
-    );
+    return <LoginContainer />;
 }
 
 export default Admin;

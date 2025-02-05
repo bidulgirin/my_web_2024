@@ -1,12 +1,17 @@
 .lf_contactContainer {
-    min-height: 100vh;
     position: relative;
+    min-height: 100vh;
     video {
         position: absolute;
+        height: 100%;
         top: 0;
         right: 0;
-        z-index: -1;
+        z-index: 1;
     }
+}
+.lf_contactFromLayout {
+    position: relative;
+    z-index: 4;
 }
 @media screen and (max-aspect-ratio: 1219/685) {
     video {
@@ -24,7 +29,7 @@
     justify-content: center;
     column-gap: 0.5rem;
     background-color: var(--black-color);
-    padding: 1.1rem 1.5rem;
+    padding: 0.4rem;
     color: var(--white-color);
     font-weight: var(--font-medium);
     border-radius: 0.75rem;

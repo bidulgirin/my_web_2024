@@ -85,7 +85,7 @@ const ContactForm = () => {
                 muted='muted'
                 volume='0'
             ></video>
-            <div className='gf_contentArea'>
+            <div className={`gf_contentArea lf_contactFromLayout`}>
                 <div className='gf_title'>Contace Me</div>
                 <div className='contact section' id='contact'>
                     <div className='gf_input_mail'>
@@ -97,16 +97,14 @@ const ContactForm = () => {
                             </span>
                         </p>
                         <p className='gf_input_description-2'>
-                            {jobStatus == '구직중' ? (
-                                <div>
+                            {jobStatus === '구직중' ? (
+                                <>
                                     적극적으로 구직중입니다
                                     <br />
                                     연락 주시면 빠른 시일내에 답장 드리겠습니다
-                                </div>
+                                </>
                             ) : (
-                                <div>
-                                    의뢰하실 프로젝트가 있다면 연락 남겨주세요!
-                                </div>
+                                <>의뢰하실 프로젝트가 있다면 연락 남겨주세요!</>
                             )}
                         </p>
                         <form

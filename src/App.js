@@ -14,6 +14,9 @@ function App() {
     const containerRef = useRef(null);
     const scrollRef = useRef(null); // LocomotiveScroll 인스턴스를 저장할 Ref
 
+    // 변경시 스크롤 맨 위로
+    useEffect(() => {}, []);
+
     useEffect(() => {
         const scroll = new LocomotiveScroll({
             el: containerRef.current,

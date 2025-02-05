@@ -14,7 +14,6 @@ function Contents() {
             <About />
             <ProjectContainer />
             <ContactForm />
-            <Buttons />
         </section>
     );
 }
