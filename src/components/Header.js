@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Navi from './Navi';
 import { Link } from 'react-router-dom';
 import ToggleDarkMode from './ToggleDarkMode';
+import Logo from '../img/logo.png';
 
 function Header() {
     const headerRef = useRef(null);
@@ -24,8 +25,8 @@ function Header() {
             ref={headerRef}
             className={isSticky ? 'gf_header isSticky' : 'gf_header'}
         >
-            <Link to='/' className='gf_title gf_logo'>
-                <img src='' alt='...' />
+            <Link to='/' className='gf_logo'>
+                <img src={Logo} alt='...' />
             </Link>
             <Navi />
             <ToggleDarkMode />

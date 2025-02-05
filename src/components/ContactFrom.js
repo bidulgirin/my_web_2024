@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from '../style/contactFrom.css';
 import supabase from '../lib/supabase'; // supabase.js에서 설정한 supabase 클라이언트
 import Cookies from 'js-cookie';
+import point_video from '../video/light.mp4';
+import 'remixicon/fonts/remixicon.css';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -74,33 +76,37 @@ const ContactForm = () => {
         fetchProjects();
     }, []);
     return (
-        <div className={`gf_light_background ${styles.lf_contactFromLayout}`}>
-            {status && <p>{status}</p>}
-            <section className='contact section' id='contact'>
-                <div className='contact__container grid'>
-                    <div className='contact__data'>
-                        <h2 className='section__title-2'>
-                            <span>Contact Me.</span>
-                        </h2>
-
+        <section className='lf_contactContainer'>
+            <video
+                src={point_video}
+                preload='auto'
+                autoplay='autoplay'
+                loop='loop'
+                muted='muted'
+                volume='0'
+            ></video>
+            <div className='gf_contentArea'>
+                <div className='gf_title'>Contace Me</div>
+                <div className='contact section' id='contact'>
+                    <div className='contact__mail'>
                         <p className='contact__description-1'>
                             현재는
                             <br />
-                            <span className='gf_point_color'>{jobStatus}</span>
+                            <span className='gf_point_color'>
+                                {jobStatus ?? '구직중'} 상태입니다
+                            </span>
                         </p>
-
                         <p className='contact__description-2'>
-                            I need your <b>Name</b> and <b>Email Address</b>,
-                            but you won't receive anything other than your
-                            reply.
+                            {jobStatus == '구직중' ? (
+                                <div>
+                                    적극적으로 구직중입니다 연락 남겨주세요!
+                                </div>
+                            ) : (
+                                <div>
+                                    의뢰하실 프로젝트가 있다면 연락 남겨주세요!
+                                </div>
+                            )}
                         </p>
-
-                        <div className='geometric-box'></div>
-                    </div>
-
-                    <div className='contact__mail'>
-                        <h2 className='contact__title'>Send Me A Message</h2>
-
                         <form
                             onSubmit={handleSubmit}
                             className='contact__form'
@@ -214,58 +220,9 @@ const ContactForm = () => {
                             </button>
                         </form>
                     </div>
-
-                    <div className='contact__social'>
-                        <img
-                            src='assets/img/curved-arrow.svg'
-                            alt=''
-                            className='contact__social-arrow'
-                        />
-
-                        <div className='contact__social-data'>
-                            <div>
-                                <p className='contact__social-description-1'>
-                                    Does not send emails
-                                </p>
-
-                                <p className='contact__social-description-2'>
-                                    Write me on my social networks
-                                </p>
-                            </div>
-
-                            <div className='contact__social-links'>
-                                <a
-                                    href='https://www.facebook.com/'
-                                    target='_blank'
-                                    className='contact__social-link'
-                                    rel='noreferrer'
-                                >
-                                    <i className='ri-facebook-circle-line'></i>
-                                </a>
-
-                                <a
-                                    href='https://www.instagram.com/'
-                                    target='_blank'
-                                    className='contact__social-link'
-                                    rel='noreferrer'
-                                >
-                                    <i className='ri-instagram-line'></i>
-                                </a>
-
-                                <a
-                                    href='https://www.linkedin.com/'
-                                    target='_blank'
-                                    className='contact__social-link'
-                                    rel='noreferrer'
-                                >
-                                    <i className='ri-linkedin-box-line'></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 };
 

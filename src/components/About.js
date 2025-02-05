@@ -2,45 +2,41 @@
 import React from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import styles from '../style/about.module.css';
+import point_img from '../img/contact_img.png';
 
 function About() {
     return (
-        <div className={`gf_contentArea ${styles.lf_aboutLayout}`}>
-            <div className={`gf_title ${styles.lf_mainTitle}`}>About me</div>
-            <div className={styles.lf_aboutContents}>
-                <div className={styles.lf_aboutText}>
-                    <div className={`${styles.lf_abouts} ${styles.fadeInUp}`}>
-                        <div className={styles.lf_subTitle}>Name</div>
-                        <div className={styles.lf_content}>이경민</div>
-                    </div>
-                    <div className={`${styles.lf_abouts} ${styles.fadeInUp}`}>
-                        <div className={styles.lf_subTitle}>Experience</div>
-                        <div className={styles.lf_content}>2년</div>
-                    </div>
-                    <div className={`${styles.lf_abouts} ${styles.fadeInUp}`}>
-                        <div className={styles.lf_subTitle}>Work</div>
-                        <div className={styles.lf_skillContainer}>
-                            {['HTML', 'CSS', 'JavaScript', 'React', 'SQL'].map((skill, index) => (
-                                <span key={index} className={styles.lf_skillBadge}>{skill}</span>
-                            ))}
+        <section className={styles.lf_aboutLayoutContainer}>
+            <div className={`${styles.lf_aboutLayout} gf_contentArea`}>
+                <div className='gf_title'>
+                    <div>About</div>
+                    <div>Me</div>
+                </div>
+                <div className={styles.lf_work_experience_contents}>
+                    <div className={styles.lf_work_experience_txt}>
+                        <div className={styles.txt}>
+                            어쩌구 저쩌구 저는 이런 경험이 있고 이걸 지향하는
+                            개발자이며 어디까지 목표를 삼고 있다는 포부가 담긴
+                            메세지... 어쩌구 저쩌구 저는 이런 경험이 있고 이걸
+                            지향하는 개발자이며 어디까지 목표를 삼고 있다는
+                            포부가 담긴 메세지... 어쩌구 저쩌구 저는 이런 경험이
+                            있고 이걸 지향하는 개발자이며 어디까지 목표를 삼고
+                            있다는 포부가 담긴 메세지... 어쩌구 저쩌구 저는 이런
+                            경험이 있고 이걸 지향하는 개발자이며 어디까지 목표를
+                            삼고 있다는 포부가 담긴 메세지... 어쩌구 저쩌구 저는
+                            이런 경험이 있고 이걸 지향하는 개발자이며 어디까지
+                            목표를 삼고 있다는 포부가 담긴 메세지...
+                        </div>
+                        <div className={styles.txt}>
+                            주로 다룰수있는게 뭐 있냐
                         </div>
                     </div>
-                    <div className={`${styles.lf_abouts} ${styles.fadeInUp}`}>
-                        <div className={styles.lf_subTitle}>studying</div>
-                        <div className={styles.lf_content}>flutter, supabase, ...</div>
+                    <div className={styles.lf_work_experience_img}>
+                        <img src={point_img} alt='about_me' />
                     </div>
                 </div>
-                <div className={styles.lf_aboutAni}>
-                    <div className={styles.lf_aboutBack}></div>
-                    <DotLottieReact
-                        src="https://lottie.host/2be86129-cc4b-431a-b843-80860c47a29f/Aed3bMIs7r.lottie"
-                        loop
-                        autoplay
-                    />
-
-                </div>
             </div>
-        </div>
+        </section>
     );
 }
 

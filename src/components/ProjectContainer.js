@@ -54,7 +54,10 @@ const ProjectContainer = () => {
     return (
         <div className={`${styles.projectContainer}`}>
             <div className='gf_contentArea'>
-                <div className='gf_title'>기여한 프로젝트</div>
+                <div className='gf_title'>
+                    Web Platform
+                    <br /> Development
+                </div>
                 {token && (
                     <>
                         <button

@@ -41,8 +41,10 @@ const ProjectListItem = ({
                         <img src={project?.imgUrl || noimg} alt='Project' />
                     </div>
                     <div className={styles.projectInfo}>
-                        <h3>{project.title}</h3>
-                        <p>{project.desc}</p>
+                        <div className={styles.projectInfoTxt}>
+                            <h3>{project.title}</h3>
+                            <p>{project.desc}</p>
+                        </div>
                     </div>
                 </a>
             ) : (
@@ -51,8 +53,10 @@ const ProjectListItem = ({
                         <img src={project?.imgUrl || noimg} alt='Project' />
                     </div>
                     <div className={styles.projectInfo}>
-                        <h3>{project.title}</h3>
-                        <p>{project.desc}</p>
+                        <div className={styles.projectInfoTxt}>
+                            <h3>{project.title}</h3>
+                            <p>{project.desc}</p>
+                        </div>
                     </div>
                 </div>
             )}
