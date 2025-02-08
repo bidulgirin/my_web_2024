@@ -55,7 +55,6 @@
     --black-color-light: hsl(0, 0%, 40%);
     --white-color: #f2f2f2;
     --title-color: hsl(0, 0%, 0%);
-    --text-color: hsl(0, 0%, 35%);
     --text-color-light: hsl(0, 0%, 64%);
     --body-color: hsl(0, 0%, 87%);
     --container-color: hsl(0, 0%, 83%);
@@ -201,7 +200,6 @@ table {
 
 .gf_desc {
     font-size: 0.9rem;
-    color: #dedede;
 }
 .gf_contentArea {
     margin: 0 auto;

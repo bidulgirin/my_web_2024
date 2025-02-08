@@ -1,9 +1,9 @@
 import React from 'react';
 import ToyProjectLists from './ToyProjectLists';
-
+import styles from '../../style/toyProject.module.css';
 const ToyProjectContainer = () => {
     return (
-        <section>
+        <section className={`${styles.lf_toyProjectContainer}`}>
             <div className='gf_contentArea'>
                 <div className='gf_title'>
                     Toy <br />
