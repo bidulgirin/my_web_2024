@@ -284,7 +284,6 @@ table {
     width: 100%;
     height: 38px;
 }
-
 .gf_input {
     position: relative;
     border: 1px solid var(--input-box-color);
@@ -337,7 +336,8 @@ table {
         border-radius: var(--base-radius); */
     }
     .gf_link {
-        color: black;
+        color: #101010;
+        text-transform: uppercase;
     }
 }
 /* 네비 공통 스타일 */

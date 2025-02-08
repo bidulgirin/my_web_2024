@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../style/contactFrom.css';
+import styles from '../style/contactFrom.module.css';
 import supabase from '../lib/supabase'; // supabase.js에서 설정한 supabase 클라이언트
 import Cookies from 'js-cookie';
-import point_video from '../video/light.mp4';
+import point_video from '../assets/video/light.mp4';
 import 'remixicon/fonts/remixicon.css';
 
 const ContactForm = () => {
@@ -43,7 +43,7 @@ const ContactForm = () => {
             console.error('Insert Error:', error.message);
             alert(`삽입 실패: ${error.message}`);
         } else {
-            alert('보내기 성공');
+            alert('감사합니다');
 
             // 성공적으로 전송된 경우, 쿠키에 저장
             Cookies.set(`submitted_${formData.email}`, true, { expires: 1 }); // 쿠키 유효기간: 30일
@@ -76,7 +76,7 @@ const ContactForm = () => {
         fetchProjects();
     }, []);
     return (
-        <section className='lf_contactContainer'>
+        <section className={` ${styles.lf_contactContainer}`}>
             <video
                 src={point_video}
                 preload='auto'
@@ -85,40 +85,37 @@ const ContactForm = () => {
                 muted='muted'
                 volume='0'
             ></video>
-            <div className={`gf_contentArea lf_contactFromLayout`}>
-                <div className='gf_title'>Contace Me</div>
-                <div className='contact section' id='contact'>
-                    <div className='gf_input_mail'>
-                        <p className='gf_input_description-1'>
+            <div className={`gf_contentArea ${styles.lf_contactFromLayout}`}>
+                <div className='gf_title'>
+                    Contace
+                    <br /> Me
+                </div>
+                <div className={`${styles.section}`}>
+                    <div className={`${styles.lf_input_mail}`}>
+                        <p className={`${styles.lf_input_description_1}`}>
                             현재는
                             <br />
                             <span className='gf_point_color'>
-                                {jobStatus ?? '구직중'} 상태입니다
+                                {jobStatus ?? '구직중'}입니다
                             </span>
                         </p>
-                        <p className='gf_input_description-2'>
+                        <p className={`${styles.lf_input_description_2}`}>
                             {jobStatus === '구직중' ? (
-                                <>
-                                    적극적으로 구직중입니다
-                                    <br />
-                                    연락 주시면 빠른 시일내에 답장 드리겠습니다
-                                </>
+                                <>연락 주시면 빠른 시일내에 답장 드리겠습니다</>
                             ) : (
                                 <>의뢰하실 프로젝트가 있다면 연락 남겨주세요!</>
                             )}
                         </p>
                         <form
                             onSubmit={handleSubmit}
-                            className='gf_input_form'
-                            id='contact-form'
+                            className={`${styles.lf_input_form}`}
                         >
-                            <div className='gf_input_group'>
-                                <div className='gf_input_box'>
+                            <div className={`${styles.lf_input_group}`}>
+                                <div className={`gf_input__box`}>
                                     <input
                                         type='text'
                                         name='name'
-                                        className='gf_input'
-                                        id='name'
+                                        className={`${styles.lf_input}`}
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
@@ -131,12 +128,11 @@ const ContactForm = () => {
                                         name
                                     </label>
                                 </div>
-                                <div className='gf_input_box'>
+                                <div className={`gf_input__box`}>
                                     <input
                                         type='text'
                                         name='phone'
-                                        className='gf_input'
-                                        id='phone'
+                                        className={`${styles.lf_input}`}
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
@@ -151,12 +147,11 @@ const ContactForm = () => {
                                 </div>
                             </div>
 
-                            <div className='gf_input_box'>
+                            <div className={`gf_input__box`}>
                                 <input
                                     type='email'
                                     name='email'
-                                    className='gf_input'
-                                    id='email'
+                                    className={`${styles.lf_input}`}
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
@@ -169,12 +164,11 @@ const ContactForm = () => {
                                     Email Address
                                 </label>
                             </div>
-                            <div className='gf_input_box'>
+                            <div className={`gf_input__box`}>
                                 <input
                                     type='text'
                                     name='subject'
-                                    className='gf_input'
-                                    id='subject'
+                                    className={`${styles.lf_input}`}
                                     value={formData.subject}
                                     onChange={handleChange}
                                     required
@@ -188,10 +182,11 @@ const ContactForm = () => {
                                 </label>
                             </div>
 
-                            <div className='gf_input_box gf_input_area'>
+                            <div
+                                className={`${styles.lf_input_group} ${styles.lf_input_area}`}
+                            >
                                 <textarea
-                                    id='message'
-                                    className='gf_input'
+                                    className={`${styles.lf_input}`}
                                     required
                                     placeholder='Message'
                                     name='message'
@@ -206,14 +201,11 @@ const ContactForm = () => {
                                 </label>
                             </div>
 
-                            <p
-                                className='gf_input_message'
-                                id='contact-message'
-                            ></p>
+                            <p className='gf_input_message'></p>
 
                             <button
                                 type='submit'
-                                className='gf_input_button button'
+                                className={`gf_input_button ${styles.button}`}
                             >
                                 <i className='ri-send-plane-line'></i>
                                 Send Message

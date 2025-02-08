@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { uploadImage } from '../apis/uploadImage.js'; // 위에서 만든 이미지 업로드 함수
+import { uploadImage } from '../hooks/useUploadImage'; // 위에서 만든 이미지 업로드 함수
 
 const ProjectForm = ({
     EditContent,

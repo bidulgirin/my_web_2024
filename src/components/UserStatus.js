@@ -1,7 +1,7 @@
 // 유저 정보 표시
 import React from 'react';
 import { getExpireTime, token } from '../apis/Token'; // 토큰 유틸리티 가져오기
-import LoginController from '../hooks/LoginController';
+import LoginController from '../hooks/useLogin';
 import TokenExpirationTimer from './TokenExpirationTimer';
 
 function UserStatus() {

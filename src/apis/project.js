@@ -2,16 +2,22 @@ import supabase from '../lib/supabase';
 // project 를 위한 supabase 함수
 
 // project 데이터 가져오기
+// 프로젝트 리스트 가져오기
 export const getProjects = async () => {
-    const result = await supabase
-        .from('project')
-        .select('*')
-        .is('deleted_at', null)
-        .order('id', {
-            ascending: false,
-        });
+    try {
+        const { data, error } = await supabase
+            .from('project')
+            .select('*')
+            .is('deleted_at', null)
+            .order('id', { ascending: false });
 
-    return result.data;
+        if (error) throw new Error(error.message);
+
+        return data;
+    } catch (err) {
+        console.error('프로젝트 불러오기 실패:', err);
+        return null; // 또는 빈 배열 [] 반환 가능
+    }
 };
 
 // project 데이터 id 로 가져오기

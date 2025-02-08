@@ -1,13 +1,13 @@
 // 프로젝트 리스트
 import React, { useState, useEffect } from 'react';
 import { token } from '../apis/Token.js';
-import useModal from '../apis/useModal.js';
+import useModal from '../hooks/useModal.js';
 import Modal from './Modal.js';
 import styles from '../style/project.module.css';
 import ProjectList from './ProjectList.js';
 import ProjectForm from './ProjectForm.js';
 // controller
-import ProjectController from '../hooks/ProjectController.js';
+import ProjectController from '../hooks/useProject.js';
 
 // const 는 Dom 이 반복되는 구조에서 사용한다잉
 const ProjectContainer = () => {
