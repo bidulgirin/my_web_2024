@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Navi from './Navi';
 import { Link } from 'react-router-dom';
 import ToggleDarkMode from './ToggleDarkMode';
-import Logo from '../img/logo.png';
+import Logo from '../assets/img/logo.png';
 
 function Header() {
     const headerRef = useRef(null);

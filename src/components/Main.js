@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../style/main.module.css';
-import main_img from '../img/main_logo.png';
+import main_img from '../assets/img/main_logo.png';
 
 function Main() {
     return (

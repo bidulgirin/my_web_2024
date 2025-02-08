@@ -1,8 +1,8 @@
 // 공통 헤더 작성
 import React from 'react';
 import styles from '../style/about.module.css';
-import point_img from '../img/contact_img.png';
-import point_gradientImg from '../img/gradient.png';
+import point_img from '../assets/img/contact_img.png';
+import point_gradientImg from '../assets/img/gradient.png';
 function About() {
     return (
         <section className={styles.lf_aboutLayoutContainer}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../style/project.module.css';
-import noimg from '../img/noimg.jpg';
+import noimg from '../assets/img/noimg.jpg';
 import { MdDelete } from 'react-icons/md';
 import { FaPencilRuler } from 'react-icons/fa';
 import { VscLinkExternal } from 'react-icons/vsc';

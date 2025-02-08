@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { token } from '../apis/Token'; // 토큰 유틸리티 가져오기
 import LoginController from '../hooks/useLogin';
 import LoginForm from '../components/LoginForm';
-import login_main_img from '../img/admin.png';
+import login_main_img from '../assets/img/admin.png';
 const LoginContainer = () => {
     const { onLogin } = LoginController();
 
