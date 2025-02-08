@@ -4,8 +4,7 @@ import ProjectContainer from './ProjectContainer';
 import About from './About';
 import Main from './Main';
 import ContactForm from './ContactFrom';
-import UserStatus from './UserStatus';
-import Buttons from './Buttons';
+import ToyProjectContainer from './ToyProject/ToyProjectContainer';
 
 function Contents() {
     return (
@@ -13,6 +12,7 @@ function Contents() {
             <Main />
             <About />
             <ProjectContainer />
+            <ToyProjectContainer />
             <ContactForm />
         </section>
     );

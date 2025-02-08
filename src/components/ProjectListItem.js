@@ -3,6 +3,7 @@ import styles from '../style/project.module.css';
 import noimg from '../img/noimg.jpg';
 import { MdDelete } from 'react-icons/md';
 import { FaPencilRuler } from 'react-icons/fa';
+import { VscLinkExternal } from 'react-icons/vsc';
 
 const ProjectListItem = ({
     project,
@@ -42,8 +43,11 @@ const ProjectListItem = ({
                     </div>
                     <div className={styles.projectInfo}>
                         <div className={styles.projectInfoTxt}>
-                            <h3>{project.title}</h3>
-                            <p>{project.desc}</p>
+                            <h3>{project?.title}</h3>
+                            <p>{project?.desc}</p>
+                            <span className={`${styles.more}`}>
+                                LINK <VscLinkExternal />
+                            </span>
                         </div>
                     </div>
                 </a>
@@ -54,8 +58,8 @@ const ProjectListItem = ({
                     </div>
                     <div className={styles.projectInfo}>
                         <div className={styles.projectInfoTxt}>
-                            <h3>{project.title}</h3>
-                            <p>{project.desc}</p>
+                            <h3>{project?.title}</h3>
+                            <p>{project?.desc}</p>
                         </div>
                     </div>
                 </div>
