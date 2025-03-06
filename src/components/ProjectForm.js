@@ -41,7 +41,7 @@ const ProjectForm = ({
         <form>
             <div className='gf_form'>
                 <label>
-                    <span className='gf_formTitle'>제목</span>
+                    <div className='gf_formTitle'>제목</div>
                     <input
                         type='text'
                         value={title}
@@ -53,7 +53,7 @@ const ProjectForm = ({
             </div>
             <div className='gf_form'>
                 <label>
-                    <span className='gf_formTitle'>설명</span>
+                    <div className='gf_formTitle'>설명</div>
                     <textarea
                         value={desc}
                         className='gf_input'
@@ -64,7 +64,7 @@ const ProjectForm = ({
             </div>
             <div className='gf_form'>
                 <label>
-                    <span className='gf_formTitle'>링크</span>
+                    <div className='gf_formTitle'>링크</div>
                     <input
                         className='gf_input'
                         value={link}

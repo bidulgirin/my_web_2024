@@ -12,7 +12,7 @@ function Contents() {
             <Main />
             <About />
             <ProjectContainer />
-            <ToyProjectContainer />
+            {/* <ToyProjectContainer /> */}
             <ContactForm />
         </section>
     );

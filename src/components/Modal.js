@@ -6,23 +6,25 @@ const Modal = ({ isOpen, closeModal, children }) => {
 
     return (
         <div
-            className={styles.modal_backdrop}
+            className={`${styles.modal_backdrop}`}
             role='presentation' // 스크린 리더 접근성을 위한 속성
         >
-            <div
-                className={styles.modal_content}
-                onClick={(e) => e.stopPropagation()} // 내부 클릭 시 모달 닫히지 않도록 이벤트 중단
-                role='dialog' // 스크린 리더 접근성을 위한 속성
-                aria-modal='true' // 접근성을 위한 속성
-            >
-                <button
-                    className={styles.modal_close}
-                    onClick={closeModal}
-                    aria-label='Close Modal' // 스크린 리더를 위한 설명
+            <div>
+                <div
+                    className={`${styles.modal_content} gf_modal_content`}
+                    onClick={(e) => e.stopPropagation()} // 내부 클릭 시 모달 닫히지 않도록 이벤트 중단
+                    role='dialog' // 스크린 리더 접근성을 위한 속성
+                    aria-modal='true' // 접근성을 위한 속성
                 >
-                    &times;
-                </button>
-                {children}
+                    <button
+                        className={styles.modal_close}
+                        onClick={closeModal}
+                        aria-label='Close Modal' // 스크린 리더를 위한 설명
+                    >
+                        &times;
+                    </button>
+                    {children}
+                </div>
             </div>
         </div>
     );

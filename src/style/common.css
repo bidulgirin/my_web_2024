@@ -120,6 +120,9 @@
     label {
         color: var(--white-color);
     }
+    .gf_modal_content {
+        background-color: #000;
+    }
 }
 
 html {
@@ -238,8 +241,10 @@ table {
         .setting_btns {
             position: absolute;
             z-index: 50;
-            right: 0;
-            top: 0;
+            right: 0.5rem;
+            top: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
         }
     }
 
@@ -285,8 +290,11 @@ table {
 .gf_input {
     position: relative;
     border: 1px solid var(--input-box-color);
-    border-radius: var(--base-radius/2);
+    border-radius: 2px;
     background-color: white;
+    padding: 0.2rem;
+    resize: none;
+    width: 100%;
 }
 .gf_input_label {
     position: absolute;
@@ -379,7 +387,10 @@ table {
     background-color: #28a745;
     color: #fff;
 }
-
+.gf_btn_layout {
+    display: flex;
+    gap: 1rem;
+}
 .gf_btn_modify {
     background-color: #ffaa00;
     color: #fff;
@@ -390,7 +401,8 @@ table {
     color: #fff;
 }
 .gf_btn:hover {
-    filter: brightness(10);
+    transform: scale(1.1);
+    opacity: 0.5;
 }
 /* 크기 스타일 */
 .gf_btn_small {
@@ -429,20 +441,17 @@ table {
 .gf_formLayout {
     z-index: 100;
     width: 90vw;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
     border-radius: var(--base-radius);
-
-    .gf_form {
-    }
-    .gf_formTitle {
-        font-weight: bold;
-        width: 100%;
-        display: block;
-    }
+}
+.gf_formTitle {
+    font-weight: bold;
+    display: block;
+    padding-bottom: 1rem;
 }
 /*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
 section.has-scroll-smooth {
